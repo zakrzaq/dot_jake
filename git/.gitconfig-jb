@@ -1,0 +1,23 @@
+[user]
+	name = Judyta Baca
+	email = bacajudyta@gmail.com
+[core]
+	excludesfile = /Users/judytabaca/.gitignore_global
+	pager = cat
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+  template = /Users/judytabaca/.stCommitMsg
+
+[color]
+  status = auto
+
+[color "status"]
+  added = green
+  changed = blue
+  untracked = magenta
+  deleted = red

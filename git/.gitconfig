@@ -1,0 +1,14 @@
+[user]
+  name = Jakub Zakrzewski
+  email = j.zakrzewsky@gmail.com
+[core]
+  pager = cat
+  editor = nano
+
+[color "status"]
+  added = green
+  changed = blue
+  untracked = magenta
+  deleted = red
+
+
