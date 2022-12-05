@@ -1,2 +1,3 @@
-stfolder/
+stfolder
 .gitignore
+.DS_Store
