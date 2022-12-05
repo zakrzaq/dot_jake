@@ -102,7 +102,6 @@ require('packer').startup(function(use)
   use 'drewtempelmeyer/palenight.vim'
   use 'overcache/NeoSolarized'
   use 'sainnhe/everforest'
-  -- 
   -- UI
   use 'nvim-lualine/lualine.nvim'
   use 'akinsho/bufferline.nvim'
@@ -110,13 +109,13 @@ require('packer').startup(function(use)
   use 'moll/vim-bbye'
   use 'karb94/neoscroll.nvim'
   use 'ryanoasis/vim-devicons'
-  use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
   -- CODE
   use 'nvim-treesitter/nvim-treesitter'
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-surround'
   use 'windwp/nvim-autopairs'
   use 'ap/vim-css-color'
+  use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
   -- NvimTree
   use 'kyazdani42/nvim-tree.lua'
   -- Telescope
