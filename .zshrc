@@ -166,7 +166,7 @@ alias glg='git log | more'
 alias glg-short='git log -r -n 10 --pretty=format:"%h - %an, %ar : %s"'
 alias glg-last-cmt='git log -n 1 --pretty=format:%H'
 alias gdf-conf='git diff --name-only --diff-filter=U --relative'
-alias gdf-nvm='git diff | nvim -'
+alias gdf='git diff | nvim -'
 alias gbr-local='_fnc() { git branch | grep -v "$1" | xargs git branch -D; }; _fnc'
 alias wgst='watch -n 1 git status'
 

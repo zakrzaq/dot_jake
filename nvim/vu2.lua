@@ -102,20 +102,21 @@ require('packer').startup(function(use)
   use 'drewtempelmeyer/palenight.vim'
   use 'overcache/NeoSolarized'
   use 'sainnhe/everforest'
+  -- 
   -- UI
   use 'nvim-lualine/lualine.nvim'
   use 'akinsho/bufferline.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'moll/vim-bbye'
   use 'karb94/neoscroll.nvim'
-  use 'ryanoasis/vim-devicons'
+  use 'nvim-tree/nvim-web-devicons'
   -- CODE
   use 'nvim-treesitter/nvim-treesitter'
+  use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-surround'
   use 'windwp/nvim-autopairs'
   use 'ap/vim-css-color'
-  use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
   -- NvimTree
   use 'kyazdani42/nvim-tree.lua'
   -- Telescope
@@ -201,6 +202,7 @@ require('nvim-treesitter.configs').setup({
 
 require('Comment').setup({})
 require("todo-comments").setup {}
+require("trouble").setup {}
 
 require('nvim-tree').setup({
   hijack_cursor = false,

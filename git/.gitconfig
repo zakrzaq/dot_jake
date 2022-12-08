@@ -3,7 +3,7 @@
   email = j.zakrzewsky@gmail.com
 [core]
   pager = cat
-  editor = nano
+  editor = nvim
 
 [color "status"]
   added = green
