@@ -117,10 +117,14 @@ if uname -a | grep -q 'Darwin'; then
   export PATH=$PATH:/opt/homebrew/bin
 fi
 
+# VARIABLES
+P="3010"
+DIR_SYSENG="dev/monte/sec-hub-consumer-enterprise-frontend/"
+
 
 # SSH
-alias home-pf='_fnc() { ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2"}; _fnc'
-alias home='_fnc() { ssh "$1"@192.168.21."$2" }; _fnc'
+alias home-pf='_fnc() { ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2" "$4"}; _fnc'
+alias home='_fnc() { ssh "$1"@192.168.21."$2" "$3" }; _fnc'
 alias judy='_fnc() { ssh judyta@127.0.0.1; }; _fnc'
 
 # SYS UBUNTU 

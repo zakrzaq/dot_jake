@@ -110,6 +110,7 @@ require('packer').startup(function(use)
   use 'moll/vim-bbye'
   use 'karb94/neoscroll.nvim'
   use 'nvim-tree/nvim-web-devicons'
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   -- CODE
   use 'nvim-treesitter/nvim-treesitter'
   use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
