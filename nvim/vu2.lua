@@ -110,7 +110,6 @@ require('packer').startup(function(use)
   use 'moll/vim-bbye'
   use 'karb94/neoscroll.nvim'
   use 'nvim-tree/nvim-web-devicons'
-  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   -- CODE
   use 'nvim-treesitter/nvim-treesitter'
   use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
@@ -203,7 +202,6 @@ require('nvim-treesitter.configs').setup({
 
 require('Comment').setup({})
 require("todo-comments").setup {}
-require("trouble").setup {}
 
 require('nvim-tree').setup({
   hijack_cursor = false,
