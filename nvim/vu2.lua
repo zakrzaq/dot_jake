@@ -102,7 +102,6 @@ require('packer').startup(function(use)
   use 'drewtempelmeyer/palenight.vim'
   use 'overcache/NeoSolarized'
   use 'sainnhe/everforest'
-  -- 
   -- UI
   use 'nvim-lualine/lualine.nvim'
   use 'akinsho/bufferline.nvim'
@@ -117,6 +116,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'windwp/nvim-autopairs'
   use 'ap/vim-css-color'
+  use 'jose-elias-alvarez/null-ls.nvim'
   -- NvimTree
   use 'kyazdani42/nvim-tree.lua'
   -- Telescope
@@ -231,6 +231,15 @@ require('toggleterm').setup({
 require('gitsigns').setup({})
 require('blame_line').setup({})
 require('nvim-autopairs').setup({})
+require('null-ls').setup({
+  sources = {
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.completion.spell,
+    null_ls.builtins.diagnostics.cspell, 
+    null_ls.builtins.code_actions.cspell
+  }
+})
 
 
 -- LSP CONFIG
@@ -302,9 +311,7 @@ vim.api.nvim_create_autocmd('User', {
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
   end
 })
---
---
---
+
 
 -- AUTOCOMPLETE
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
