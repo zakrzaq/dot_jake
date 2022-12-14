@@ -231,13 +231,15 @@ require('toggleterm').setup({
 require('gitsigns').setup({})
 require('blame_line').setup({})
 require('nvim-autopairs').setup({})
+
+
 require('null-ls').setup({
   sources = {
-    null_ls.builtins.formatting.stylua,
-    null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.completion.spell,
-    null_ls.builtins.diagnostics.cspell, 
-    null_ls.builtins.code_actions.cspell
+    require('null-ls').builtins.formatting.stylua,
+    require('null-ls').builtins.diagnostics.eslint,
+    require('null-ls').builtins.completion.spell,
+    require('null-ls').builtins.diagnostics.cspell,
+    require('null-ls').builtins.code_actions.cspell
   }
 })
 
