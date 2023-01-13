@@ -204,6 +204,9 @@ alias syncth-bg='syncthing > /dev/null &'
 alias dc-ls='docker ps'
 alias dc-syseng-api='docker-compose -f "docker-compose.m1.yml" up --remove-orphans --build'
 
+#UTILS
+alias edit-hosts='fn() { sudo nvim /etc/hosts && sudo dscacheutil --flashcache}; fn'
+
 
 
 #######
