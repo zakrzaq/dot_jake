@@ -49,7 +49,7 @@ vim.opt.clipboard = 'unnamed'
 
 -- KEYS
 vim.keymap.set('n', '<space>w', '<cmd>write<cr>', {desc = 'Save'})
-vim.keymap.set('n', '<C-s>', '<cmd>write<cr><cmd>EslintFixAll<cr>')
+vim.keymap.set('n', '<C-s>', '<cmd>write<cr>')
 vim.keymap.set({ 'n', 'v' }, '<C-c>', '"*y')
 vim.keymap.set({ 'n', 'v' }, '<C-y>', '"+y')
 vim.keymap.set({ 'n', 'v' }, '<C-l>', '"+p')
@@ -101,7 +101,7 @@ require('packer').startup(function(use)
   use 'joshdick/onedark.vim'
   use 'arcticicestudio/nord-vim'
   use 'drewtempelmeyer/palenight.vim'
-  use 'overcache/NeoSolarized' 
+  use 'overcache/NeoSolarized'
   -- UI
   use 'nvim-lualine/lualine.nvim'
   use 'akinsho/bufferline.nvim'
@@ -114,6 +114,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'windwp/nvim-autopairs'
   use 'ap/vim-css-color'
+  use 'jose-elias-alvarez/null-ls.nvim'
   -- NvimTree
   use 'kyazdani42/nvim-tree.lua'
   -- Telescope
@@ -297,9 +298,18 @@ vim.api.nvim_create_autocmd('User', {
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
   end
 })
---
---
---
+
+-- NULL_LS
+local null_ls = require("null-ls")
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.diagnostics.mypy,
+        null_ls.builtins.formatting.isort,
+        null_ls.builtins.formatting.black,
+    },
+})
 
 -- AUTOCOMPLETE
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }

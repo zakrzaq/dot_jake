@@ -101,7 +101,7 @@ require('packer').startup(function(use)
   use 'joshdick/onedark.vim'
   use 'arcticicestudio/nord-vim'
   use 'drewtempelmeyer/palenight.vim'
-  use 'overcache/NeoSolarized' 
+  use 'overcache/NeoSolarized'
   -- UI
   use 'nvim-lualine/lualine.nvim'
   use 'akinsho/bufferline.nvim'
