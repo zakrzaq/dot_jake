@@ -206,7 +206,9 @@ alias dc-syseng-api='docker-compose -f "docker-compose.m1.yml" up --remove-orpha
 
 #UTILS
 alias edit-hosts='fn() { sudo nvim /etc/hosts && sudo dscacheutil -flashcache}; fn'
-
+alias dus='fn() { du -h --max-depth=1 $1 | sort -hr }; fn'
+alias rmv-dirs='fn() { find . -name $1 -type d -prune -exec rm -rf '{}' + }; fn'
+alias cheat='fn() { curl cheat.sh/$1 }; fn'
 
 
 #######
