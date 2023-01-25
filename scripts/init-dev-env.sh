@@ -7,9 +7,13 @@ echo ""
 echo "Please choose OS:"
 read system
 
-mkdir ~/dev
-mkdir ~/build-apps
-mkdir ~/config-dev
+if [[ "$system" =~ ^(ubuntu|arch|mac)$ ]]; then
+  mkdir ~/dev
+  mkdir ~/build-apps
+  mkdir ~/config-dev
+else
+    echo "$system in not supported"
+fi
 
 
 ##### Ubuntu
@@ -39,18 +43,18 @@ then
   git clone git@github.com:zakrzaq/dot_jake.git ~/config-dev
   
   rm -rf ~/.config/nvim/*
-  ln -s ~/config-dev/nvim/* ~/.config/nvim/
+  ln -sf ~/config-dev/nvim/* ~/.config/nvim/
   
   rm -rf ~/.tmux.conf
-  ln -s ~/config-dev/.tmux.conf ~/
+  ln -sf ~/config-dev/.tmux.conf ~/
   
   rm -rf ~/.zshrc
-  ln -s ~/config-dev/.zshrc ~/
+  ln -sf ~/config-dev/.zshrc ~/
   
   rm -rf ~/.gitconfig
-  ln -s ~/config-dev/git/.gitconfig ~/
+  ln -sf ~/config-dev/git/.gitconfig ~/
 
-  ln -s ~/config-dev/scripts/* ~/.local/bin/
+  ln -sf ~/config-dev/scripts/* ~/.local/bin/
   chmod u+r+x ~/config-dev/scripts/*
   
   # INSTALL FROM REPOS
@@ -88,6 +92,10 @@ fi
 if [ $system = 'arch' ]
 then
 
+  # UPDATE SYSTEM
+
+  yay -Syyu
+
   # GIT & GITHUB
 
   yay -S github-cli git
@@ -100,18 +108,18 @@ then
   git clone git@github.com:zakrzaq/dot_jake.git ~/config-dev
   
   rm -rf ~/.config/nvim/*
-  ln -s ~/config-dev/nvim/* ~/.config/nvim/
+  ln -sf ~/config-dev/nvim/* ~/.config/nvim/
   
   rm -rf ~/.tmux.conf
-  ln -s ~/config-dev/.tmux.conf ~/
+  ln -sf ~/config-dev/.tmux.conf ~/
   
   rm -rf ~/.zshrc
-  ln -s ~/config-dev/.zshrc ~/
+  ln -sf ~/config-dev/.zshrc ~/
   
   rm -rf ~/.gitconfig
-  ln -s ~/config-dev/git/.gitconfig ~/
+  ln -sf ~/config-dev/git/.gitconfig ~/
 
-  ln -s ~/config-dev/scripts/* ~/.local/bin/
+  ln -sf ~/config-dev/scripts/* ~/.local/bin/
   chmod u+r+x ~/config-dev/scripts/*
 
   # OTHER APPS
