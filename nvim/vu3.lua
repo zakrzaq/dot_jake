@@ -160,16 +160,16 @@ require('bufferline').setup({
     offsets = {
       { filetype = 'NvimTree' },
     },
+  },
+  highlights = {
+    buffer_selected = {
+      italic = false,
+    },
+    indicator_selected = {
+      fg = {attribute = 'fg', highlight = 'Function'},
+      italic = false,
+    }
   }
-  -- highlights = {
-  --   buffer_selected = {
-  --     italic = false,
-  --   },
-  --   indicator_selected = {
-  --     fg = {attribute = 'fg', highlight = 'Function'},
-  --     italic = false,
-  --   }
-  -- }
 })
 
 require('indent_blankline').setup({
@@ -249,17 +249,16 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
   lsp_defaults
 )
 
--- lspconfig.sumneko_lua.setup{}
--- lspconfig.pyright.setup{}
+lspconfig.sumneko_lua.setup{}
+lspconfig.pyright.setup{}
 lspconfig.volar.setup{
   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
 }
 -- lspconfig.vuels.setup({
 --   filetypes = {'vue'}
 -- })
-lspconfig.tsserver.setup{
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-}
+-- lspconfig.tsserver.setup{
+
 lspconfig.eslint.setup {}
 
 vim.api.nvim_create_autocmd('User', {
@@ -297,9 +296,47 @@ vim.api.nvim_create_autocmd('User', {
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
   end
 })
---
---
---
+
+
+-- NULL_LS
+local null_ls = require("null-ls")
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+null_ls.setup({
+    sources = {
+      -- JAVASCRIPT
+        null_ls.builtins.code_actions.eslint_d,
+        null_ls.builtins.diagnostics.eslint_d,
+        -- null_ls.builtins.formatting.eslint_d,
+        -- null_ls.builtins.formatting.prettierd,
+        null_ls.builtins.formatting.prettier_eslint,
+      -- LUA
+        -- null_ls.builtins.formatting.stylua,
+        null_ls.builtins.completion.luasnip,
+        null_ls.builtins.diagnostics.luacheck,
+      -- PYTHON
+        null_ls.builtins.diagnostics.mypy,
+        null_ls.builtins.formatting.isort,
+        null_ls.builtins.formatting.black,
+      -- CSPELL
+        null_ls.builtins.code_actions.cspell,
+    },
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    -- on 0.8, you should use 
+                    -- vim.lsp.buf.format({ bufnr = bufnr }) 
+                    -- vim.lsp.buf.formatting_sync()
+                end,
+            })
+        end
+    end,
+})
+
 
 -- AUTOCOMPLETE
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
