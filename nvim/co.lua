@@ -126,6 +126,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
   use 'braxtons12/blame_line.nvim'
+  use 'github/copilot.vim'
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
@@ -144,6 +145,10 @@ end)
 
 -- INIT PACKAGES
 -- require('packer').sync()
+
+
+-- COPILOT TAB FIX
+vim.g.copilot_assume_mapped = true
 
 require('lualine').setup({
   options = {

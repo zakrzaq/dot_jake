@@ -195,6 +195,7 @@ alias vu2vim='nvim -u ~/.config/nvim/vu2.lua'
 alias vu3vim='nvim -u ~/.config/nvim/vu3.lua'
 alias pyvim='nvim -u ~/.config/nvim/py.lua'
 alias ravim='nvim -u ~/.config/nvim/ra.lua'
+alias covim='nvim -u ~/.config/nvim/co.lua'
 
 # WSL Specific
 alias syncth-bg='syncthing > /dev/null &'
@@ -217,3 +218,18 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+function pomo() {
+    arg1=$1
+    shift
+    args="$*"
+
+    min=${arg1:?Example: pomo 15 Take a break}
+    sec=$((min * 60))
+    msg="${args:?Example: pomo 15 Take a break}"
+
+    while true; do
+        date '+%H:%M' && sleep "${sec:?}" && notify-send -u critical -t 0 -a pomo "${msg:?}"
+    done
+}
