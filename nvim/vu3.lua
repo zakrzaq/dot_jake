@@ -102,6 +102,7 @@ require('packer').startup(function(use)
   use 'arcticicestudio/nord-vim'
   use 'drewtempelmeyer/palenight.vim'
   use 'overcache/NeoSolarized' 
+  use 'EdenEast/nightfox.nvim'
   -- UI
   use 'nvim-lualine/lualine.nvim'
   use 'akinsho/bufferline.nvim'
