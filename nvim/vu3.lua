@@ -255,6 +255,7 @@ lspconfig.pyright.setup{}
 lspconfig.volar.setup{
   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
 }
+lspconfig.bashls.setup{}
 -- lspconfig.vuels.setup({
 --   filetypes = {'vue'}
 -- })
