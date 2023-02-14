@@ -115,6 +115,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'windwp/nvim-autopairs'
   use 'ap/vim-css-color'
+  use 'jose-elias-alvarez/null-ls.nvim'
   -- NvimTree
   use 'kyazdani42/nvim-tree.lua'
   -- Telescope
