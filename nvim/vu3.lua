@@ -258,11 +258,7 @@ lspconfig.volar.setup{
   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
 }
 lspconfig.bashls.setup{}
--- lspconfig.vuels.setup({
---   filetypes = {'vue'}
--- })
--- lspconfig.tsserver.setup{
-
+lspconfig.tailwindcss.setup{}
 lspconfig.eslint.setup {}
 
 vim.api.nvim_create_autocmd('User', {
