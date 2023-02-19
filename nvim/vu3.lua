@@ -2,7 +2,7 @@
 
 
 -- VARIABLES
-local color_theme = 'onedark'
+local color_theme = 'nightfox'
 
 -- OPTIONS
 vim.opt.mouse = 'a'
