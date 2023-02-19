@@ -137,6 +137,7 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
+  use 'kabouzeid/nvim-lspinstall'
 
 
   if install_plugins then
