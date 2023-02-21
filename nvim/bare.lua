@@ -290,7 +290,10 @@ vim.api.nvim_create_autocmd('User', {
 -- AUTOCOMPLETE
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
+require('luasnip.loaders.from_vscode').lazy_load()
+
 local cmp = require('cmp')
+local luasnip = require('luasnip')
 
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 

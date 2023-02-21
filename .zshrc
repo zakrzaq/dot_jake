@@ -195,7 +195,7 @@ alias vu2vim='nvim -u ~/.config/nvim/vu2.lua'
 alias vu3vim='nvim -u ~/.config/nvim/vu3.lua'
 alias pyvim='nvim -u ~/.config/nvim/py.lua'
 alias ravim='nvim -u ~/.config/nvim/ra.lua'
-alias covim='nvim -u ~/.config/nvim/co.lua'
+alias brvim='nvim -u ~/.config/nvim/bare.lua'
 
 # WSL Specific
 alias syncth-bg='syncthing > /dev/null &'
