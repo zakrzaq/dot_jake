@@ -1,5 +1,5 @@
--- local color_theme = 'nightfox'
-local color_theme = 'slate'
+local color_theme = 'nightfox'
+-- local color_theme = 'slate'
 
 -- OPTIONS
 vim.opt.mouse = 'a'
