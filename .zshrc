@@ -123,29 +123,29 @@ DIR_SYSENG="dev/monte/sec-hub-consumer-enterprise-frontend/"
 
 
 # SSH
-alias home-pf='_fnc() { ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2" "$4"}; _fnc'
-alias home='_fnc() { ssh "$1"@192.168.21."$2" "$3" }; _fnc'
-alias judy='_fnc() { ssh judyta@127.0.0.1; }; _fnc'
+alias home-pf='fn() { ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2" "$4"}; fn'
+alias home='fn() { ssh "$1"@192.168.21."$2" "$3" }; fn'
+alias home-kitty='fn() {kitty +kitten ssh "$1"@192.168.21."$2";}; fn'
 
 # SYS UBUNTU 
 alias aptupd='sudo apt update'
 alias aptupg='sudo apt upgrade'
-alias aptins='_fnc() { sudo apt install $1 }; _fnc'
+alias aptins='fn() { sudo apt install $1 }; fn'
 alias aptcln='sudo apt autoremove && sudo apt autoclean'
 alias me='echo $(whoami) $(uname -n) $(uname -s) $(ifconfig -l | xargs -n1 ipconfig getifaddr)'
 
 # SYS mac
-alias bins='_fnc() { brew install $1 }; _fnc'
+alias bins='fn() { brew install $1 }; fn'
 
 # SYS TERM
-alias envm='_fnc() { nvim -u ~/.config/nvim/py.lua ~/.config/nvim/$1.lua; cp ~/.config/nvim/$1.lua ~/config-dev/nvim; }; _fnc'
-alias ezsh='_fnc() { nvim -u ~/.config/nvim/py.lua ~/.zshrc; cp ~/.zshrc ~/config-dev/; exec zsh; }; _fnc'
-alias rzsh='_fnc() { exec zsh; clear; }; _fnc' 
-alias etmux='_fnc() { nvim -u ~/.config/nvim/py.lua ~/.tmux.conf; cp ~/.tmux.conf ~/config-dev/; }; _fnc'
+alias envm='fn() { nvim -u ~/.config/nvim/py.lua ~/.config/nvim/$1.lua; cp ~/.config/nvim/$1.lua ~/config-dev/nvim; }; fn'
+alias ezsh='fn() { nvim -u ~/.config/nvim/py.lua ~/.zshrc; cp ~/.zshrc ~/config-dev/; exec zsh; }; fn'
+alias rzsh='fn() { exec zsh; clear; }; fn' 
+alias etmux='fn() { nvim -u ~/.config/nvim/py.lua ~/.tmux.conf; cp ~/.tmux.conf ~/config-dev/; }; fn'
 alias rmv='rm -rf'
 alias cl='clear'
 alias x='exit'
-alias mkd='_fnc() { mkdir "$1" && cd "$1"; }; _fnc'
+alias mkd='fn() { mkdir "$1" && cd "$1"; }; fn'
 alias dev-from-config='cp ~/config-dev/.zshrc ~/ && cp -r ~/config-dev/nvim/*.lua ~/.config/nvim/ && cp ~/config-dev/.tmux.conf ~/ && exec zsh'
 alias dev-to-config='cp ~/.zshrc ~/config-dev/ && cp -r ~/.config/nvim/*.lua ~/config-dev/nvim/ && cp ~/.tmux.conf ~/config-dev/'
 alias dev-rsync='fn() { rsync -r ~/config-dev/nvim/* "$1"@192.168.21."$2":~/.config/nvim/; rsync ~/.zshrc "$1"@192.168.21."$2":~/; rsync ~/.tmux.conf "$1"@192.168.21."$2":~/}; fn'
@@ -155,25 +155,33 @@ alias dev-rsync-raint='fn() { rsync -r ~/config-dev/nvim/* jake@172.23.129.161:~
 alias gst='git status'
 alias gsm='git switch master'
 alias gsn='git switch main'
-alias gsb='_fnc() { git switch "$1" ;}; _fnc'
-alias gcb='_fnc() { git checkout -b "$1" ;}; _fnc'
+alias gsb='fn() { git switch "$1" ;}; fn'
+alias gcb='fn() { git checkout -b "$1" ;}; fn'
 alias gca='git checkout .'
 alias gaa='git add .'
-alias gcm='_fnc() { git commit -m "$1" ;}; _fnc'
-alias gbr='_fnc() { git branch -D "$1" ;}; _fnc'
+alias gcm='fn() { git commit -m "$1" ;}; fn'
+alias gac='fn() { git add .; git commit -m "$1" ;}; fn'
+alias gbr='fn() { git branch -D "$1" ;}; fn'
 alias gph='git push'
 alias gpl='git pull'
-alias gmr='_fnc() { git merge "$1" ;}; _fnc'
+alias gmr='fn() { git merge "$1" ;}; fn'
 alias gbl='git branch'
-alias gpub='_fnc() { git push --set-upstream origin `git rev-parse --abbrev-ref HEAD` }; _fnc'
+alias gpub='fn() { git push --set-upstream origin `git rev-parse --abbrev-ref HEAD` }; fn'
 alias glg='git log | more'
 alias glg='git log -r -n 10 --pretty=format:"%h - %an, %ar : %s"'
 alias glg-last-cmt='git log -n 1 --pretty=format:%H'
 alias gdf-conf='git diff --name-only --diff-filter=U --relative'
 alias gdf='git diff | nvim -'
-alias gbr-local='_fnc() { git branch | grep -v "$1" | xargs git branch -D; }; _fnc'
+alias gbr-local='fn() { git branch | grep -v "$1" | xargs git branch -D; }; fn'
 alias wgst='watch -n 1 git status'
 alias grv='fn() { git reset --"$1" HEAD~"$2" }; fn'
+
+## github
+alias pr-create='gh pr create'
+alias pr-list='gh pr list'
+alias pr-ready='fn() { gh pr ready "$1" ;}; fn() '
+alias pr-diff='fn() { gh pr diff "$1" ;}; fn() '
+alias pr-status='fn() { gh pr status "$1" ;}; fn() '
 
 # DEV SERVERS
 alias nrs='npm run serve'
@@ -184,9 +192,9 @@ alias yb='yarn build'
 alias ys='yarn start'
 
 # GIT STASH
-alias gsta='_fnc() { git add .; git stash save "$1"; }; _fnc'
+alias gsta='fn() { git add .; git stash save "$1"; }; fn'
 alias gstl='git stash list'
-alias gstp='_fnc() { git stash pop stash@\{"$1"\} }; _fnc'
+alias gstp='fn() { git stash pop stash@\{"$1"\} }; fn'
 
 
 # NVIM
