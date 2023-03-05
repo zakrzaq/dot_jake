@@ -1,4 +1,5 @@
-local color_theme = 'nightfox'
+-- local color_theme = 'nightfox'
+local color_theme = 'slate'
 
 -- OPTIONS
 vim.opt.mouse = 'a'
@@ -242,7 +243,7 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
   lsp_defaults
 )
 
-lspconfig.sumneko_lua.setup{}
+lspconfig.lua_ls.setup{}
 lspconfig.pyright.setup{}
 lspconfig.volar.setup{
   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
