@@ -132,7 +132,7 @@ alias aptupd='sudo apt update'
 alias aptupg='sudo apt upgrade'
 alias aptins='_fnc() { sudo apt install $1 }; _fnc'
 alias aptcln='sudo apt autoremove && sudo apt autoclean'
-alias me='echo $(whoami) $(uname -n) $(uname -s) $(ifconfig -l | xargs -n1 ifconfig getifaddr)'
+alias me='echo $(whoami) $(uname -n) $(uname -s) $(ip addr | grep "state UP" -A2 | tail -n1 | awk "{print $2}" | cut -f1  -d"/")'
 
 # SYS mac
 alias bins='_fnc() { brew install $1 }; _fnc'
@@ -207,9 +207,10 @@ alias rmv-dirs='fn() { find . -name $1 -type d -prune -exec rm -rf '{}' + }; fn'
 alias cheat='fn() { curl cheat.sh/$1 }; fn'
 
 # NVM CONFIG
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source /usr/share/nvm/init-nvm.sh
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
