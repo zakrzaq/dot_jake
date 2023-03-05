@@ -160,6 +160,8 @@ alias gcb='_fnc() { git checkout -b "$1" ;}; _fnc'
 alias gca='git checkout .'
 alias gaa='git add .'
 alias gcm='_fnc() { git commit -m "$1" ;}; _fnc'
+alias gac='_fnc() { git add .; git commit -m "$1" ;}; _fnc'
+
 alias gbr='_fnc() { git branch -D "$1" ;}; _fnc'
 alias gph='git push'
 alias gpl='git pull'
