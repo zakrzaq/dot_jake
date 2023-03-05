@@ -1,4 +1,5 @@
 local color_theme = 'nightfox'
+-- local color_theme = 'slate'
 
 -- OPTIONS
 vim.opt.mouse = 'a'
@@ -114,6 +115,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'windwp/nvim-autopairs'
   use 'ap/vim-css-color'
+  use 'moll/vim-bbye'
   -- NvimTree
   use 'kyazdani42/nvim-tree.lua'
   -- Telescope
@@ -251,7 +253,7 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
   lsp_defaults
 )
 
-lspconfig.sumneko_lua.setup{}
+lspconfig.lua_ls.setup{}
 lspconfig.pyright.setup{}
 lspconfig.volar.setup{
   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }

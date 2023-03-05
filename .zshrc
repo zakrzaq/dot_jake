@@ -132,7 +132,7 @@ alias aptupd='sudo apt update'
 alias aptupg='sudo apt upgrade'
 alias aptins='fn() { sudo apt install $1 }; fn'
 alias aptcln='sudo apt autoremove && sudo apt autoclean'
-alias me='echo $(whoami) $(uname -n) $(uname -s) $(ifconfig -l | xargs -n1 ipconfig getifaddr)'
+alias me='echo $(whoami) $(uname -n) $(uname -s) $(ip addr | grep "state UP" -A2 | tail -n1 | awk "{print $2}" | cut -f1  -d"/")'
 
 # SYS mac
 alias bins='fn() { brew install $1 }; fn'
@@ -145,11 +145,15 @@ alias etmux='fn() { nvim -u ~/.config/nvim/py.lua ~/.tmux.conf; cp ~/.tmux.conf 
 alias rmv='rm -rf'
 alias cl='clear'
 alias x='exit'
+<<<<<<< HEAD
 alias mkd='fn() { mkdir "$1" && cd "$1"; }; fn'
 alias dev-from-config='cp ~/config-dev/.zshrc ~/ && cp -r ~/config-dev/nvim/*.lua ~/.config/nvim/ && cp ~/config-dev/.tmux.conf ~/ && exec zsh'
 alias dev-to-config='cp ~/.zshrc ~/config-dev/ && cp -r ~/.config/nvim/*.lua ~/config-dev/nvim/ && cp ~/.tmux.conf ~/config-dev/'
 alias dev-rsync='fn() { rsync -r ~/config-dev/nvim/* "$1"@192.168.21."$2":~/.config/nvim/; rsync ~/.zshrc "$1"@192.168.21."$2":~/; rsync ~/.tmux.conf "$1"@192.168.21."$2":~/}; fn'
 alias dev-rsync-raint='fn() { rsync -r ~/config-dev/nvim/* jake@172.23.129.161:~/.config/nvim/; rsync ~/.zshrc jake@172.23.129.161:~/; rsync ~/.tmux.conf jake@172.23.129.161:~/}; fn'
+=======
+alias mkd='_fnc() { mkdir "$1" && cd "$1"; }; _fnc'
+>>>>>>> 6dcf1eb9b220bb12c5931ecbaa6902a8935270e6
 
 # DEV:
 alias gst='git status'
@@ -159,9 +163,15 @@ alias gsb='fn() { git switch "$1" ;}; fn'
 alias gcb='fn() { git checkout -b "$1" ;}; fn'
 alias gca='git checkout .'
 alias gaa='git add .'
+<<<<<<< HEAD
 alias gcm='fn() { git commit -m "$1" ;}; fn'
 alias gac='fn() { git add .; git commit -m "$1" ;}; fn'
 alias gbr='fn() { git branch -D "$1" ;}; fn'
+=======
+alias gcm='_fnc() { git commit -m "$1" ;}; _fnc'
+alias gac='_fnc() { git add .; git commit -m "$1" ;}; _fnc'
+alias gbr='_fnc() { git branch -D "$1" ;}; _fnc'
+>>>>>>> 6dcf1eb9b220bb12c5931ecbaa6902a8935270e6
 alias gph='git push'
 alias gpl='git pull'
 alias gmr='fn() { git merge "$1" ;}; fn'
@@ -208,10 +218,8 @@ alias brvim='nvim -u ~/.config/nvim/bare.lua'
 # WSL Specific
 alias syncth-bg='syncthing > /dev/null &'
 
-
 # DOCKER
 alias dc-ls='docker ps'
-alias dc-syseng-api='docker-compose -f "docker-compose.m1.yml" up --remove-orphans --build'
 
 #UTILS
 alias edit-hosts='fn() { sudo nvim /etc/hosts && sudo dscacheutil -flashcache}; fn'
@@ -219,25 +227,7 @@ alias dus='fn() { du -h --max-depth=1 $1 | sort -hr }; fn'
 alias rmv-dirs='fn() { find . -name $1 -type d -prune -exec rm -rf '{}' + }; fn'
 alias cheat='fn() { curl cheat.sh/$1 }; fn'
 
-
-#######
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+# NVM CONFIG
+source /usr/share/nvm/init-nvm.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-function pomo() {
-    arg1=$1
-    shift
-    args="$*"
-
-    min=${arg1:?Example: pomo 15 Take a break}
-    sec=$((min * 60))
-    msg="${args:?Example: pomo 15 Take a break}"
-
-    while true; do
-        date '+%H:%M' && sleep "${sec:?}" && notify-send -u critical -t 0 -a pomo "${msg:?}"
-    done
-}
