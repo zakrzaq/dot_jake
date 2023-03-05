@@ -195,7 +195,7 @@ alias ys='yarn start'
 alias gsta='fn() { git add .; git stash save "$1"; }; fn'
 alias gstl='git stash list'
 alias gstp='fn() { git stash pop stash@\{"$1"\} }; fn'
-
+alias gstd='fn() { git stash drop stash@\{"$1"\} }; fn'
 
 # NVIM
 alias nvim-old='nvim -u ~/.config/nvim/init.vim__'
