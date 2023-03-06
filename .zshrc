@@ -145,15 +145,7 @@ alias etmux='fn() { nvim -u ~/.config/nvim/py.lua ~/.tmux.conf; cp ~/.tmux.conf 
 alias rmv='rm -rf'
 alias cl='clear'
 alias x='exit'
-<<<<<<< HEAD
-alias mkd='fn() { mkdir "$1" && cd "$1"; }; fn'
-alias dev-from-config='cp ~/config-dev/.zshrc ~/ && cp -r ~/config-dev/nvim/*.lua ~/.config/nvim/ && cp ~/config-dev/.tmux.conf ~/ && exec zsh'
-alias dev-to-config='cp ~/.zshrc ~/config-dev/ && cp -r ~/.config/nvim/*.lua ~/config-dev/nvim/ && cp ~/.tmux.conf ~/config-dev/'
-alias dev-rsync='fn() { rsync -r ~/config-dev/nvim/* "$1"@192.168.21."$2":~/.config/nvim/; rsync ~/.zshrc "$1"@192.168.21."$2":~/; rsync ~/.tmux.conf "$1"@192.168.21."$2":~/}; fn'
-alias dev-rsync-raint='fn() { rsync -r ~/config-dev/nvim/* jake@172.23.129.161:~/.config/nvim/; rsync ~/.zshrc jake@172.23.129.161:~/; rsync ~/.tmux.conf jake@172.23.129.161:~/}; fn'
-=======
 alias mkd='_fnc() { mkdir "$1" && cd "$1"; }; _fnc'
->>>>>>> 6dcf1eb9b220bb12c5931ecbaa6902a8935270e6
 
 # DEV:
 alias gst='git status'
@@ -163,15 +155,9 @@ alias gsb='fn() { git switch "$1" ;}; fn'
 alias gcb='fn() { git checkout -b "$1" ;}; fn'
 alias gca='git checkout .'
 alias gaa='git add .'
-<<<<<<< HEAD
 alias gcm='fn() { git commit -m "$1" ;}; fn'
 alias gac='fn() { git add .; git commit -m "$1" ;}; fn'
 alias gbr='fn() { git branch -D "$1" ;}; fn'
-=======
-alias gcm='_fnc() { git commit -m "$1" ;}; _fnc'
-alias gac='_fnc() { git add .; git commit -m "$1" ;}; _fnc'
-alias gbr='_fnc() { git branch -D "$1" ;}; _fnc'
->>>>>>> 6dcf1eb9b220bb12c5931ecbaa6902a8935270e6
 alias gph='git push'
 alias gpl='git pull'
 alias gmr='fn() { git merge "$1" ;}; fn'
