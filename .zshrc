@@ -145,7 +145,7 @@ alias etmux='fn() { nvim -u ~/.config/nvim/py.lua ~/.tmux.conf; cp ~/.tmux.conf 
 alias rmv='rm -rf'
 alias cl='clear'
 alias x='exit'
-alias mkd='_fnc() { mkdir "$1" && cd "$1"; }; _fnc'
+alias mkd='fn() { mkdir "$1" && cd "$1"; }; fn'
 
 
 alias link-dot-files='fn() { ln -sf ~/dot_jake/git/.gitconfig ~/; \
