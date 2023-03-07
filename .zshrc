@@ -151,7 +151,7 @@ alias mkd='fn() { mkdir "$1" && cd "$1"; }; fn'
 alias link-dot-files='fn() { ln -sf ~/dot_jake/git/.gitconfig ~/; \
                              ln -sf ~/dot_jake/.tmux.conf ~/; \
                              ln -sf ~/dot_jake/.zshrc ~/; \
-                             ln -sf ~/dot_jake/nvim/* ~/.config/nvim/;}; fn'
+                             ln -sf ~/dot_jake/"${1:-nvim}"/* ~/.config/nvim/;}; fn'
 
 # GIT:
 alias gst='git status'
@@ -221,6 +221,14 @@ alias rmv-dirs='fn() { find . -name $1 -type d -prune -exec rm -rf '{}' + }; fn'
 alias cheat='fn() { curl cheat.sh/$1 }; fn'
 
 # NVM CONFIG
-source /usr/share/nvm/init-nvm.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+NVM_LOADER=/usr/share/nvm/init-nvm.sh
+if [ -f "$NVM_LOADER" ]; then
+  source "$NVM_LOADER"
+else
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This
+fi
 
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
