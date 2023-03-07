@@ -147,7 +147,13 @@ alias cl='clear'
 alias x='exit'
 alias mkd='_fnc() { mkdir "$1" && cd "$1"; }; _fnc'
 
-# DEV:
+
+alias link-dot-files='fn() { ln -sf ~/dot_jake/git/.gitconfig ~/; \
+                             ln -sf ~/dot_jake/.tmux.conf ~/; \
+                             ln -sf ~/dot_jake/.zshrc ~/; \
+                             ln -sf ~/dot_jake/nvim/* ~/.config/nvim/;}; fn'
+
+# GIT:
 alias gst='git status'
 alias gsm='git switch master'
 alias gsn='git switch main'
