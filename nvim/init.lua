@@ -2,6 +2,7 @@ require("core.packer")
 
 require("plugins")
 
+require('plugins.mason')
 require('plugins.autocomplete')
 require('plugins.bufferline')
 require('plugins.indent-blank')

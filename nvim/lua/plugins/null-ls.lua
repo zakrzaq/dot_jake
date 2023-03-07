@@ -11,9 +11,9 @@ null_ls.setup({
         -- null_ls.builtins.formatting.prettierd,
         null_ls.builtins.formatting.prettier_eslint,
       -- LUA
-        -- null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.stylua,
         null_ls.builtins.completion.luasnip,
-        null_ls.builtins.diagnostics.luacheck,
+        -- null_ls.builtins.diagnostics.luacheck,
       -- PYTHON
         null_ls.builtins.diagnostics.mypy,
         null_ls.builtins.formatting.isort,
@@ -21,7 +21,7 @@ null_ls.setup({
       -- CSPELL
         null_ls.builtins.code_actions.cspell,
     },
-    on_attach = function(client, bufnr)
+   on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
@@ -34,7 +34,7 @@ null_ls.setup({
                 end,
             })
         end
-    end,
+    end, 
 })
 
 
