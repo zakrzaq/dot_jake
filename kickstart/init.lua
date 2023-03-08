@@ -1,9 +1,10 @@
+-- [[ STARTUP ]]
 -- Set <space> as the leader key. See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Install package manager
+-- [[ INSATALL LAZY ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -17,6 +18,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- [[ INIT LAZY PACKAGES ]]
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
 --
@@ -39,8 +41,6 @@ require('lazy').setup({
     direction = 'horizontal',
     shade_terminals = true
   }},
-  -- Null-ls
-  -- { 'jose-elias-alvarez/null-ls.nvim', opts = {} },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -139,14 +139,14 @@ require('lazy').setup({
     end,
   },
 
-  require 'jake.plugins.autoformat',
+  -- require 'jake.plugins.autoformat',
   -- require 'jake.plugins.debug',
   require 'jake.plugins.neotree',
   require 'jake.plugins.null-ls',
   -- { import = 'custom.plugins' },
 }, {})
 
--- [[ Setting options ]]
+-- [[ OPTIONS ]]
 -- See `:help vim.o`
 vim.o.hlsearch = false -- Set highlight on search
 vim.wo.number = true -- Make line numbers default
@@ -163,7 +163,7 @@ vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
 vim.o.termguicolors = true -- NOTE: You should make sure your terminal supports this
 
--- [[ Basic Keymaps ]]
+-- [[ KEY MAPS ]]
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -180,8 +180,13 @@ vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
 vim.keymap.set('n', '<C-q>', '<cmd>Bdelete<CR>')
 vim.keymap.set('n', '<C-]>', '<cmd>:bn<CR>')
 vim.keymap.set('n', '<C-[>', '<cmd>:bp<CR>')
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
--- [[ Highlight on yank ]]
+-- [[ HIGHLIGHT ON YANK ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -192,7 +197,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- [[ Configure Telescope ]]
+--[[ VIRTUL TEXT OFF ]]
+vim.diagnostic.config({
+  float = { source = "always", border = border },
+  virtual_text = false,
+  signs = true,
+})
+vim.cmd([[ autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+
+-- [[ CONFIGURE TELESCOPE ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
@@ -226,7 +239,7 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find, { desc = '[S]earch [B]uffer' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
--- [[ Configure Treesitter ]]
+-- [[ CONFIGURE TREESITTER ]]
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
     ensure_installed = { 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim', 'javascript', 'vue', 'css', 'json', 'bash' },
@@ -289,13 +302,9 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
--- LSP settings.
+
+-- [[ LSP settings ]]
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
@@ -373,7 +382,7 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
--- nvim-cmp setup
+-- [[ nvim-cmp SETUP ]]
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
@@ -418,7 +427,7 @@ cmp.setup {
   },
 }
 
--- NULL_LS
+-- [[ NULL_LS ]]
 local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 

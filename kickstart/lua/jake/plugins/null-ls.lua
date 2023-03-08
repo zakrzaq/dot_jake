@@ -9,9 +9,9 @@ return {
         -- JAVASCRIPT
           null_ls.builtins.code_actions.eslint,
           null_ls.builtins.diagnostics.eslint,
-          null_ls.builtins.formatting.eslint,
-          -- null_ls.builtins.formatting.prettierd,
-          -- n wull_ls.builtins.formatting.prettier_eslint,
+          -- null_ls.builtins.formatting.eslint,
+          null_ls.builtins.formatting.prettier,
+          -- null_ls.builtins.formatting.prettier_eslint,
         -- LUA
           -- null_ls.builtins.formatting.stylua,
           null_ls.builtins.completion.luasnip,
