@@ -1,6 +1,6 @@
 -- KEYS
 vim.keymap.set('n', '<space>w', '<cmd>write<cr>', {desc = 'Save'})
-vim.keymap.set('n', '<C-s>', '<cmd>EslintFixAll<cr><cmd>write<cr>')
+vim.keymap.set('n', '<C-s>', '<cmd>Format<cr><cmd>write<cr>')
 vim.keymap.set({ 'n', 'v' }, '<C-c>', '"*y')
 vim.keymap.set({ 'n', 'v' }, '<C-y>', '"+y')
 vim.keymap.set({ 'n', 'v' }, '<C-l>', '"+p')
