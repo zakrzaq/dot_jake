@@ -119,11 +119,11 @@ fi
 
 # PPROJECTS
 function pr-zepp () { ssh 
-  -L 3000:localhost:3000 /
-  -L 54321:localhost:54321 /
-  -L 54322:localhost:54322 /
-  -L 54323:localhost:54323 /
-  -L 24678:localhost:24678 /
+  -L 3000:localhost:3000 \
+  -L 54321:localhost:54321 \
+  -L 54322:localhost:54322 \
+  -L 54323:localhost:54323 \
+  -L 24678:localhost:24678 \
   "$1"@192.168.21."$2"
 }
 
