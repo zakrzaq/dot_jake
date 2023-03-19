@@ -1,6 +1,8 @@
-require('Comment').setup({})
-require('telescope')
-require('gitsigns').setup({})
-require('blame_line').setup({})
-require('nvim-autopairs').setup({})
+require("plugins.lazy")
+require("plugins.treesitter")
+require("plugins.neotree")
+require("plugins.telescope")
+require("plugins.gitsigns")
+require("plugins.autocmp")
+require("plugins.lsp")
 

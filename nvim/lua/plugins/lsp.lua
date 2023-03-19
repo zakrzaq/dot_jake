@@ -6,6 +6,7 @@ local on_attach = function(_, bufnr)
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
+
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
@@ -23,8 +24,22 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
 
+
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
+    local eslint_list = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+
+    local function contains(list, x)
+      for _, v in pairs(list) do
+        if v == x then return true end
+      end
+      return false
+    end
+
+    if contains(eslint_list, vim.bo.filetype) then
+      vim.cmd("EslintFixAll")
+    else
+      vim.lsp.buf.format()
+    end
   end, { desc = 'Format current buffer with LSP' })
 end
 

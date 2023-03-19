@@ -65,37 +65,7 @@ require('lazy').setup({
   },
   { 'numToStr/Comment.nvim', opts = {} },
 
-  -- LSP
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      { 'j-hui/fidget.nvim',               opts = {} },
-      'folke/neodev.nvim',
-      { 'jose-elias-alvarez/null-ls.nvim', opts = {} },
-    },
-  },
-
-  -- AUTOCOMPLETE
-  {
-    'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  },
-
-  -- GIT SIGNS
-  {
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
+  -- TELESCOPE
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
   {
     'nvim-telescope/telescope-fzf-native.nvim',
@@ -128,5 +98,38 @@ require('lazy').setup({
     config = function()
       vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
     end,
-  }
+  },
+
+  -- GIT SIGNS
+  {
+    'lewis6991/gitsigns.nvim',
+    opts = {
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+    },
+  },
+
+  -- AUTOCOMPLETE
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+  },
+ 
+  -- LSP
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      { 'j-hui/fidget.nvim',               opts = {} },
+      'folke/neodev.nvim',
+      -- { 'jose-elias-alvarez/null-ls.nvim', opts = {} },
+    },
+  },
+
 }, {})
