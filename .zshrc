@@ -117,9 +117,14 @@ if uname -a | grep -q 'Darwin'; then
   export PATH=$PATH:/opt/homebrew/bin
 fi
 
-# VARIABLES
-P="3010"
-DIR_SYSENG="dev/monte/sec-hub-consumer-enterprise-frontend/"
+# PPROJECTS
+alias pr-zepp="fn() { ssh -L 3000:localhost:3000 /
+                          -L 54321:localhost:54321 /
+                          -L 54322:localhost:54322 /
+                          -L 54323:localhost:54323 /
+                          -L 24678:localhost:24678 /
+                          "$1"@192.168.21."$2"
+                        }; fn"
 
 
 # SSH
@@ -173,6 +178,9 @@ alias gpub='fn() { git push --set-upstream origin `git rev-parse --abbrev-ref HE
 alias glg='git log | more'
 alias glg='git log -r -n 10 --pretty=format:"%h - %an, %ar : %s"'
 alias glg-last-cmt='git log -n 1 --pretty=format:%H'
+alias gdf-up='git diff @\{upstream\} | nvim'
+alias gdf-master='git diff master | nvim'
+alias gdf-main='git diff main | nvim'
 alias gdf-conf='git diff --name-only --diff-filter=U --relative'
 alias gdf='git diff | nvim -'
 alias gbr-local='fn() { git branch | grep -v "$1" | xargs git branch -D; }; fn'
@@ -229,6 +237,9 @@ else
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This
 fi
+
+# ADR TOOLS
+export PATH="$HOME/app-repos/adr-tools/src/:$PATH"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
