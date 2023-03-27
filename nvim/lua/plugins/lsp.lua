@@ -1,3 +1,5 @@
+local util = require("lspconfig/util")
+
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
@@ -94,6 +96,7 @@ mason_lspconfig.setup {
 mason_lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
+      root_dir = util.root_pattern('.git'),
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
