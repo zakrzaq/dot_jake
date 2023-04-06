@@ -22,16 +22,15 @@ require('lazy').setup({
 
   -- THEME
   {
-    'EdenEast/nightfox.nvim',
+    'nordtheme/vim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'nightfox'
+      vim.cmd.colorscheme 'nordfox'
     end,
   },
   'rebelot/kanagawa.nvim',
-  -- 'rafi/awesome-vim-colorschemes',
-  'nordtheme/vim',
   'sainnhe/everforest',
+  'EdenEast/nightfox.nvim',
   'rose-pine/neovim',
 
   -- UI
