@@ -31,7 +31,6 @@ require('lazy').setup({
   'rebelot/kanagawa.nvim',
   'rafi/awesome-vim-colorschemes',
   'nordtheme/vim',
-  'edeneast/nightfox.nvim',
   'sainnhe/everforest',
 
   -- UI

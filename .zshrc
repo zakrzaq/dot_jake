@@ -163,6 +163,7 @@ alias link-dot-files='fn() { ln -sf ~/dot_jake/git/.gitconfig ~/; \
 alias gst='git status'
 alias gsm='git switch master'
 alias gsn='git switch main'
+alias gsd='git switch develop'
 alias gsb='fn() { git switch "$1" ;}; fn'
 alias gcb='fn() { git checkout -b "$1" ;}; fn'
 alias gca='git checkout .'
@@ -241,8 +242,6 @@ fi
 
 # ENVS
 export PATH="$HOME/app-repos/adr-tools/src/:$PATH"
-export OPENAI_API_KEY=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
-
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
