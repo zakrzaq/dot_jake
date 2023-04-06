@@ -29,9 +29,10 @@ require('lazy').setup({
     end,
   },
   'rebelot/kanagawa.nvim',
-  'rafi/awesome-vim-colorschemes',
+  -- 'rafi/awesome-vim-colorschemes',
   'nordtheme/vim',
   'sainnhe/everforest',
+  'rose-pine/neovim',
 
   -- UI
   { 'akinsho/bufferline.nvim', opts = {} },
@@ -138,9 +139,6 @@ require('lazy').setup({
   {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
-    config = function()
-      require("chatgpt").setup()
-    end,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",

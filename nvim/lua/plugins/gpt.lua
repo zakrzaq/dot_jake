@@ -1,4 +1,4 @@
-require('telescope').setup {
+require('chatgpt').setup {
   welcome_message = 'Hi Jakey',
   loading_text = "loading",
   question_sign = "", -- you can use emoji if you want e.g. 🙂
