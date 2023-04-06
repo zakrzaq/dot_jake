@@ -28,7 +28,11 @@ require('lazy').setup({
       vim.cmd.colorscheme 'nightfox'
     end,
   },
-
+  'rebelot/kanagawa.nvim',
+  'rafi/awesome-vim-colorschemes',
+  'nordtheme/vim',
+  'edeneast/nightfox.nvim',
+  'sainnhe/everforest',
 
   -- UI
   { 'akinsho/bufferline.nvim', opts = {} },
@@ -44,7 +48,7 @@ require('lazy').setup({
       shade_terminals = true
     }
   },
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim',          opts = {} },
   {
     'nvim-lualine/lualine.nvim',
     opts = {
@@ -63,7 +67,7 @@ require('lazy').setup({
       show_trailing_blankline_indent = false,
     },
   },
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',         opts = {} },
 
   -- TELESCOPE
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -119,17 +123,30 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   },
- 
+
   -- LSP
   {
     'neovim/nvim-lspconfig',
     dependencies = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
-      { 'j-hui/fidget.nvim',               opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
       'folke/neodev.nvim',
       -- { 'jose-elias-alvarez/null-ls.nvim', opts = {} },
     },
+  },
+
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
   },
 
 }, {})

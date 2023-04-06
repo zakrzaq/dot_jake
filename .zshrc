@@ -239,8 +239,10 @@ else
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This
 fi
 
-# ADR TOOLS
+# ENVS
 export PATH="$HOME/app-repos/adr-tools/src/:$PATH"
+export OPENAI_API_KEY=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
+
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
