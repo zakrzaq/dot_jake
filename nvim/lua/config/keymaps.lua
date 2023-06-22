@@ -36,11 +36,11 @@ vim.keymap.set('n', '<leader>q', '<cmd>Bdelete<CR>', { desc = "[Q]uit current bu
 
 -- TELESCOPE
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[ ] [F]ind existing [B]uffers' })
+vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[F]ind existing [B]uffers' })
 vim.keymap.set('n', '<leader>/', function()
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
     winblend = 10,
-    previewer = false,
+    previewer = true,
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
@@ -52,6 +52,7 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find, { desc = '[S]earch [B]uffer' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+-- vim.keymap.set('n', '<leader>se', require('telescope.builtin').diagnostics({ bufnr = 0 }), { desc = '[S]earch [E]rrors current buffer' })
 
 -- NEOTREE
 vim.keymap.set({ 'n', 'v' }, '<leader>t', ':Neotree toggle<CR>', { silent = true, desc = "Neo[T]ree Toggle" })
