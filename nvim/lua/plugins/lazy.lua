@@ -37,7 +37,7 @@ require('lazy').setup({
   { 'akinsho/bufferline.nvim', opts = {} },
   { 'moll/vim-bbye' },
   'tpope/vim-surround',
-  'windwp/nvim-autopairs',
+  { 'windwp/nvim-autopairs', event = "InsertEnter", opts = {} },
   'ap/vim-css-color',
   {
     'akinsho/toggleterm.nvim',
