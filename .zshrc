@@ -153,6 +153,7 @@ alias cl='clear'
 alias x='exit'
 alias mkd='fn() { mkdir "$1" && cd "$1"; }; fn'
 alias we='watch echo'
+alias src='fn() { source ./"$1"/bin/activate }; fn'
 
 alias link-dot-files='fn() { ln -sf ~/dot_jake/git/.gitconfig ~/; \
                              ln -sf ~/dot_jake/.tmux.conf ~/; \
