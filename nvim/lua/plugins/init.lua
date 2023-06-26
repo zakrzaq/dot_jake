@@ -5,5 +5,5 @@ require("plugins.telescope")
 require("plugins.gitsigns")
 require("plugins.autocmp")
 require("plugins.lsp")
--- require("plugins.gpt")
+require("plugins.gpt")
 

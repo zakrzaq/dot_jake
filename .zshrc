@@ -245,6 +245,7 @@ fi
 # ENVS
 export PATH="$HOME/app-repos/adr-tools/src/:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+source "$HOME/.openai_key.zsh"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
