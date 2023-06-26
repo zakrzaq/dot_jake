@@ -134,6 +134,7 @@ require('lazy').setup({
     },
   },
 
+  -- GPT
   {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
@@ -142,6 +143,19 @@ require('lazy').setup({
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"
     }
+  },
+
+  -- CODIUM
+  {
+    "jcdickinson/codeium.nvim",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "hrsh7th/nvim-cmp",
+    },
+    config = function()
+        require("codeium").setup({
+        })
+    end
   },
 
 }, {})
