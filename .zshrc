@@ -212,12 +212,13 @@ alias gstp='fn() { git stash pop stash@\{"$1"\} }; fn'
 alias gstd='fn() { git stash drop stash@\{"$1"\} }; fn'
 
 # NVIM
-alias nvim-old='nvim -u ~/.config/nvim/init.vim__'
-alias vu2vim='nvim -u ~/.config/nvim/vu2.lua'
-alias vu3vim='nvim -u ~/.config/nvim/vu3.lua'
-alias pyvim='nvim -u ~/.config/nvim/py.lua'
-alias ravim='nvim -u ~/.config/nvim/ra.lua'
-alias brvim='nvim -u ~/.config/nvim/bare.lua'
+alias nv='nvim'
+# alias nvim-old='nvim -u ~/.config/nvim/init.vim__'
+# alias vu2vim='nvim -u ~/.config/nvim/vu2.lua'
+# alias vu3vim='nvim -u ~/.config/nvim/vu3.lua'
+# alias pyvim='nvim -u ~/.config/nvim/py.lua'
+# alias ravim='nvim -u ~/.config/nvim/ra.lua'
+# alias brvim='nvim -u ~/.config/nvim/bare.lua'
 
 # WSL Specific
 alias syncth-bg='syncthing > /dev/null &'
