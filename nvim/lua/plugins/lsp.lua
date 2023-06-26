@@ -50,7 +50,10 @@ end
 
 local servers = {
   volar = {
-    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+    filetypes = { 'vue', 'json' }
+  },
+  tsserver = {
+    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
   },
   pyright = {},
   eslint = {
