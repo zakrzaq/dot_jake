@@ -37,7 +37,8 @@ require('lazy').setup({
   { 'moll/vim-bbye' },
   'tpope/vim-surround',
   { 'windwp/nvim-autopairs', event = "InsertEnter", opts = {} },
-  'ap/vim-css-color',
+  { 'windwp/nvim-ts-autotag', opts = {} },
+  { 'brenoprata10/nvim-highlight-colors', opts = { enable_tailwind = true} },
   {
     'akinsho/toggleterm.nvim',
     opts = {
