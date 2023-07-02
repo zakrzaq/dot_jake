@@ -21,16 +21,16 @@ require('lazy').setup({
   'tpope/vim-sleuth',
 
   -- THEME
-  'nordtheme/vim',
-  'rebelot/kanagawa.nvim',
-  'sainnhe/everforest',
-  { 'EdenEast/nightfox.nvim',
+  { 'nordtheme/vim' },
+  { 'rebelot/kanagawa.nvim' },
+  { 'sainnhe/everforest',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'duskfox'
+      vim.cmd.colorscheme 'everforest'
     end,
   },
-  'rose-pine/neovim',
+  { 'EdenEast/nightfox.nvim' },
+  { 'rose-pine/neovim' },
 
   -- UI
   { 'akinsho/bufferline.nvim', opts = {} },
