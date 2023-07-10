@@ -23,12 +23,14 @@ require('lazy').setup({
   -- THEME
   { 'nordtheme/vim' },
   { 'rebelot/kanagawa.nvim' },
-  { 'sainnhe/everforest',
+  { 'folke/tokyonight.nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'everforest'
+      vim.cmd.colorscheme 'tokyonight'
     end,
   },
+  { 'morhetz/gruvbox'},
+  { 'sainnhe/everforest' },
   { 'EdenEast/nightfox.nvim' },
   { 'rose-pine/neovim' },
 
@@ -53,7 +55,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'everforest',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
