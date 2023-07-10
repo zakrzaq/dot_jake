@@ -53,7 +53,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'nightfox',
+        theme = 'everforest',
         component_separators = '|',
         section_separators = '',
       },
@@ -66,7 +66,8 @@ require('lazy').setup({
       show_trailing_blankline_indent = false,
     },
   },
-  { 'numToStr/Comment.nvim',         opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
+  { 'folke/todo-comments.nvim', opts = {} }, 
 
   -- TELESCOPE
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
