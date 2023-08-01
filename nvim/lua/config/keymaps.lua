@@ -20,8 +20,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>p', "\"+p", { desc = "[P]aste from system 
 
 -- general
 vim.keymap.set("n", "<C-q>", "<cmd>qa!<CR>", { desc = "[Q]uit nvim" })
-vim.keymap.set("n", "<space>w", "<cmd>write<cr>", {desc = "[W]write changes"})
-vim.keymap.set("n", "<C-s>", "<cmd>Format<cr> <cmd>write<cr>", {desc = "[W]write changes"})
+vim.keymap.set("n", "<space>w", "<cmd>write<cr>", { desc = "[W]write changes" })
+vim.keymap.set("n", "<C-s>", "<cmd>Format<cr> <cmd>write<cr>", { desc = "[W]write changes" })
 vim.keymap.set("n", "gn", "<cmd>:bn<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "gp", "<cmd>:bp<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<C-h>", "<C-w>h")
