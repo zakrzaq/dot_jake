@@ -35,7 +35,7 @@ require('lazy').setup({
   { 'rose-pine/neovim' },
 
   -- UI
-  { 'akinsho/bufferline.nvim', opts = {} },
+  -- { 'akinsho/bufferline.nvim', opts = {} },
   { 'moll/vim-bbye' },
   'tpope/vim-surround',
   { 'windwp/nvim-autopairs', event = "InsertEnter", opts = {} },
