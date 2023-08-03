@@ -14,8 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   -- GIT
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  { "NeogitOrg/neogit", dependencies = "nvim-lua/plenary.nvim", config = true },
+  -- 'tpope/vim-fugitive',
+  -- 'tpope/vim-rhubarb',
 
   -- TAB SHIFT WIDTH
   'tpope/vim-sleuth',
