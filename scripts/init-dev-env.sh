@@ -10,7 +10,6 @@ read system
 if [[ "$system" =~ ^(ubuntu|arch|mac)$ ]]; then
   mkdir ~/dev
   mkdir ~/build-apps
-  mkdir ~/config-dev
 else
     echo "$system in not supported"
 fi
@@ -93,56 +92,39 @@ if [ $system = 'arch' ]
 then
 
   # UPDATE SYSTEM
-
+  sudo pacman -Syyu
   yay -Syyu
 
   # GIT & GITHUB
-
   yay -S github-cli git
-
   ssh-keygen -f git-hub-key -t ed25519 -C "j.zakrzewsky@gmail.com"
   gh ssh-key add ~/.ssh/git-hub-key.pub 
 
-  # LINK CONFIG-DEV
   
-  git clone git@github.com:zakrzaq/dot_jake.git ~/config-dev
-  
-  rm -rf ~/.config/nvim/*
-  ln -sf ~/config-dev/nvim/* ~/.config/nvim/
-  
-  rm -rf ~/.tmux.conf
-  ln -sf ~/config-dev/.tmux.conf ~/
-  
-  rm -rf ~/.zshrc
-  ln -sf ~/config-dev/.zshrc ~/
-  
-  rm -rf ~/.gitconfig
-  ln -sf ~/config-dev/git/.gitconfig ~/
-
-  ln -sf ~/config-dev/scripts/* ~/.local/bin/
-  chmod u+r+x ~/config-dev/scripts/*
-
   # OTHER APPS
-
-  yay -S neovim nnn nvm
+  yay -S neovim nnn nvm ripgrep fd zsh kitty 
   nvm install
 
   # INSTALL NODE APPS
-  
-  sudo npm install -g vtop
-  sudo npm install -g @volar/vue-language-server
-  sudo npm install -g vls
-  sudo npm install -g emmet-ls
-  sudo npm install -g typescript typescript-language-server
+  sudo npm install -g vtop, @volar/vue-language-server, vls, emmet-ls, typescript typescript-language-server
   
   NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin
   sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin
   
   # INSTALL PYTHON APPS
-  
   pip install python-lsp-server
 
+  # ZSH
+  exec zsh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+  
+  # LINK DOT-JAKE
+  git clone git@github.com:zakrzaq/dot_jake.git ~/
+  ./dot_jake/setup.sh
+
 fi
+
 
 ##### MACOS
 
