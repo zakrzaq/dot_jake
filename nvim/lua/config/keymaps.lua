@@ -34,6 +34,10 @@ vim.keymap.set("v", ">", ">gv")
 --Bbye
 vim.keymap.set('n', '<leader>q', '<cmd>Bdelete<CR>', { desc = "[Q]uit current buffer" })
 
+-- NeoGit
+vim.keymap.set('n', '<leader>ng', '<cmd>:Neogit<CR>', { desc = "[N]eo[G]it" })
+
+
 -- TELESCOPE
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[F]ind existing [B]uffers' })
