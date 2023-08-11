@@ -57,6 +57,8 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find, { desc = '[S]earch [B]uffer' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 -- vim.keymap.set('n', '<leader>se', require('telescope.builtin').diagnostics({ bufnr = 0 }), { desc = '[S]earch [E]rrors current buffer' })
+vim.keymap.set("n", "<leader>st", "<cmd>:TodoTelescope<CR>")
+
 
 -- NEOTREE
 vim.keymap.set({ 'n', 'v' }, '<leader>t', ':Neotree toggle<CR>', { silent = true, desc = "Neo[T]ree Toggle" })
