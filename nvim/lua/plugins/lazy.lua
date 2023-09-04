@@ -73,7 +73,15 @@ require('lazy').setup({
   { 'folke/todo-comments.nvim', opts = {} }, 
 
   -- TELESCOPE
-  { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+  {
+    'nvim-telescope/telescope.nvim',
+    version = '*',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'BurntSushi/ripgrep',
+      'sharkdp/fd'
+    }
+  },
   {
     'nvim-telescope/telescope-fzf-native.nvim',
     build = 'make',
@@ -133,9 +141,9 @@ require('lazy').setup({
     dependencies = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim', tag = "legacy" , opts = {} },
       'folke/neodev.nvim',
-      -- { 'jose-elias-alvarez/null-ls.nvim', opts = {} },
+      { 'jose-elias-alvarez/null-ls.nvim', opts = {} },
     },
   },
 
