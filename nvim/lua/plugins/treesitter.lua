@@ -1,6 +1,6 @@
 -- [[ CONFIGURE TREESITTER ]]
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim', 'javascript', 'vue', 'css', 'scss', 'json', 'bash' },
+  ensure_installed = { 'lua', 'python', 'rust', 'tsx', 'typescript', 'vim', 'javascript', 'vue', 'css', 'scss', 'json', 'bash' },
   auto_install = true,
 
   highlight = { enable = true },
