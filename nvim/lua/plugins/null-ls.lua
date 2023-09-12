@@ -1,21 +1,25 @@
 -- requring plugin
-local installed, Null_ls = pcall(require, "null-ls")
+local installed, nls = pcall(require, "null-ls")
 if not installed then
 	vim.notify("Plugin 'null-ls' is not installed")
 	return
 end
 
 -- Setting up Null_ls
-local formatting = Null_ls.builtins.formatting
+local formatting = nls.builtins.formatting
+local diagnostics = nls.builtins.diagnostics
+local code_actions = nls.builtins.code_actions
 local sources = {
 	formatting.stylua,
-	formatting.prettier,
-	formatting.autopep8,
-	formatting.black,
+	formatting.prettierd,
 	formatting.isort,
-	formatting.eslint,
+	formatting.black,
+	diagnostics.luacheck,
+	diagnostics.eslint,
+	diagnostics.ruff,
+	code_actions.eslint,
 }
 
-Null_ls.setup({
+nls.setup({
 	sources = sources,
 })

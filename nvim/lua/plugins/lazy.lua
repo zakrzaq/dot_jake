@@ -46,7 +46,7 @@ require('lazy').setup({
     'akinsho/toggleterm.nvim',
     opts = {
       open_mapping = '<C-b>',
-      direction = 'horizontal',
+      direction = 'float',
       shade_terminals = true
     }
   },
@@ -64,10 +64,54 @@ require('lazy').setup({
   },
   {
     'lukas-reineke/indent-blankline.nvim',
+    event = { "BufReadPost", "BufNewFile" },
     opts = {
-      char = '┊',
+      -- char = "▏",
+      char = "│",
+      filetype_exclude = {
+        "help",
+        "alpha",
+        "dashboard",
+        "neo-tree",
+        "Trouble",
+        "lazy",
+        "mason",
+        "notify",
+        "toggleterm",
+        "lazyterm",
+      },
       show_trailing_blankline_indent = false,
+      show_current_context = false,
     },
+  },
+  {
+    "echasnovski/mini.indentscope",
+    version = false, -- wait till new 0.7.0 release to put it back on semver
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      -- symbol = "▏",
+      symbol = "│",
+      options = { try_as_border = true },
+    },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "help",
+          "alpha",
+          "dashboard",
+          "neo-tree",
+          "Trouble",
+          "lazy",
+          "mason",
+          "notify",
+          "toggleterm",
+          "lazyterm",
+        },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
   },
   { 'numToStr/Comment.nvim', opts = {} },
   { 'folke/todo-comments.nvim', opts = {} }, 
@@ -143,7 +187,7 @@ require('lazy').setup({
       'williamboman/mason-lspconfig.nvim',
       { 'j-hui/fidget.nvim', tag = "legacy" , opts = {} },
       'folke/neodev.nvim',
-      { 'jose-elias-alvarez/null-ls.nvim', opts = {} },
+      { 'jose-elias-alvarez/null-ls.nvim' },
     },
   },
 

@@ -9,7 +9,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.ignorecase = true
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -36,4 +36,4 @@ vim.opt.completeopt = 'menuone,noselect'
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
-vim.opt.hidden = false
+vim.opt.hidden = true
