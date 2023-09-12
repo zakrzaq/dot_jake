@@ -20,7 +20,7 @@ local sources = {
 		end,
 	}),
 	diagnostics.luacheck,
-	diagnostics.eslint,
+	-- diagnostics.eslint,
 	diagnostics.ruff,
 	code_actions.cspell,
 	code_actions.eslint,
