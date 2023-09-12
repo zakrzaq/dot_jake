@@ -1,4 +1,4 @@
--- VIRTUL TEXT OFF
+-- VIRTUAL TEXT OFF
 vim.diagnostic.config({
 	float = { source = "always", border = "rounded" },
 	virtual_text = false,
