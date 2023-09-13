@@ -53,6 +53,7 @@ menu() {
   echo "5. Synlink Neovim"
   echo "6. Synlink Redshift"
   echo "7. Synlink Scripts"
+  echo "7. Synlink WezTerm"
   echo "X. Exit"
   echo "============"
   read -p "Enter your choice: " choice
@@ -96,6 +97,10 @@ menu() {
     7)
       create_symlink "~/dot_jake/scripts/*" "~/.local/bin/"
       echo ".local/bin symlinked"
+      ;;
+    8)
+      create_symlink "~/dot_jake/.wezterm.lua" "~/"
+      echo ".wezterm.lua symlinked"
       ;;
     x|X)
       echo "Exiting..."
