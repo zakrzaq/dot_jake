@@ -20,5 +20,24 @@ config.color_scheme = 'Palenight (Gogh)'
 config.hide_tab_bar_if_only_one_tab = true
 
 
+
+config.launch_menu = {
+  -- {
+  --   args = { 'PowerShell' },
+  -- },
+  {
+    label = 'Bash',
+    args = { 'bash', '-l' }
+  },
+  {
+    label = 'PowerShell',
+    args = { 'powershell.exe', '-NoLogo' }
+  }
+}
+
+--- Set Pwsh as the default on Windows
+config.default_prog = { 'PowerShell' }
+
+
 -- and finally, return the configuration to wezterm
 return config
