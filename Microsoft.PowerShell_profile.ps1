@@ -26,7 +26,7 @@ function gsb {
 }
 
 function gbl {
-	git branch $args
+  git branch $args
 }
 
 function gbd {
@@ -43,8 +43,8 @@ function gcm {
 
 function gct {
   git add .
-	git commit -m $args
-  pit push
+  git commit -m $args
+  git push
 }
 
 function gcbr {
@@ -133,7 +133,7 @@ function Dev-ApClient {
   Go-RA-Apps
   cd RA-AP-Client-Vue
   if ($args[0] -eq 'run') {
-   npm run dev 
+  npm run dev 
   } else {
     nvim
   }
