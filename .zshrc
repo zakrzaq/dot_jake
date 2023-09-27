@@ -118,6 +118,7 @@ if uname -a | grep -q 'Darwin'; then
 fi
 
 # PPROJECTS
+
 function pr-zepp () { 
 ssh -L 3000:localhost:3000 \
   -L 54321:localhost:54321 \
@@ -127,6 +128,9 @@ ssh -L 3000:localhost:3000 \
   "$1"@192.168.21."$2"
 }
 
+
+function jcurl () { curl "$@" | json_pp | pygmentize -l json }
+function jcurl-v () { curl -v "$@" | json_pp | pygmentize -l json }
 
 # SSH
 alias home-pf='fn() { ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2" "$4"}; fn'

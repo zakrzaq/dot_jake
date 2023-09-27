@@ -34,6 +34,7 @@ require("lazy").setup({
 	{ "sainnhe/everforest" },
 	{ "EdenEast/nightfox.nvim" },
 	{ "rose-pine/neovim" },
+	{ "projekt0n/caret.nvim" },
 
 	-- UI
 	{ "akinsho/bufferline.nvim", opts = {} },
