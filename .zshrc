@@ -144,7 +144,7 @@ alias aptupd='sudo apt update'
 alias aptupg='sudo apt upgrade'
 alias aptins='fn() { sudo apt install $1 }; fn'
 alias aptcln='sudo apt autoremove && sudo apt autoclean'
-my-ip() { echo $(ifconfig | grep "inet " | sort -nr | head -1) | awk '{print $2}' ;};
+my-ip() { ip addr | grep -Po 'inet \K[\d.]+' | sort -nr | tr "\n" "  " ;};
 alias me='echo $(whoami) $(uname -n) $(uname -s) $(my-ip)'
 
 # SYS mac
