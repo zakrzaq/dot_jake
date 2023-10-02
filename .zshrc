@@ -119,16 +119,6 @@ fi
 
 # PPROJECTS
 
-function pr-zepp () { 
-ssh -L 3000:localhost:3000 \
-  -L 54321:localhost:54321 \
-  -L 54322:localhost:54322 \
-  -L 54323:localhost:54323 \
-  -L 24678:localhost:24678 \
-  "$1"@192.168.21."$2"
-}
-
-
 function jcurl () { curl "$@" | json_pp | pygmentize -l json }
 function jcurl-v () { curl -v "$@" | json_pp | pygmentize -l json }
 
@@ -147,25 +137,16 @@ alias aptcln='sudo apt autoremove && sudo apt autoclean'
 my-ip() { ip addr | grep -Po 'inet \K[\d.]+' | sort -nr | tr "\n" "  " ;};
 alias me='echo $(whoami) $(uname -n) $(uname -s) $(my-ip)'
 
-# SYS mac
+# SYS MAC
 alias bins='fn() { brew install $1 }; fn'
 
 # SYS TERM
-alias envm='fn() { nvim -u ~/.config/nvim/py.lua ~/.config/nvim/$1.lua; cp ~/.config/nvim/$1.lua ~/config-dev/nvim; }; fn'
-alias ezsh='fn() { nvim -u ~/.config/nvim/py.lua ~/.zshrc; cp ~/.zshrc ~/config-dev/; exec zsh; }; fn'
-alias rzsh='fn() { exec zsh; clear; }; fn' 
-alias etmux='fn() { nvim -u ~/.config/nvim/py.lua ~/.tmux.conf; cp ~/.tmux.conf ~/config-dev/; }; fn'
 alias rmv='rm -rf'
 alias cl='clear'
 alias x='exit'
 alias mkd='fn() { mkdir "$1" && cd "$1"; }; fn'
 alias we='watch echo'
 alias src='fn() { source ./"$1"/bin/activate }; fn'
-
-alias link-dot-files='fn() { ln -sf ~/dot_jake/git/.gitconfig ~/; \
-                             ln -sf ~/dot_jake/.tmux.conf ~/; \
-                             ln -sf ~/dot_jake/.zshrc ~/; \
-                             ln -sf ~/dot_jake/"${1:-nvim}"/* ~/.config/nvim/;}; fn'
 
 # GIT:
 alias gst='git status'
@@ -221,12 +202,6 @@ alias gstd='fn() { git stash drop stash@\{"$1"\} }; fn'
 
 # NVIM
 alias nv='nvim'
-# alias nvim-old='nvim -u ~/.config/nvim/init.vim__'
-# alias vu2vim='nvim -u ~/.config/nvim/vu2.lua'
-# alias vu3vim='nvim -u ~/.config/nvim/vu3.lua'
-# alias pyvim='nvim -u ~/.config/nvim/py.lua'
-# alias ravim='nvim -u ~/.config/nvim/ra.lua'
-# alias brvim='nvim -u ~/.config/nvim/bare.lua'
 
 # WSL Specific
 alias syncth-bg='syncthing > /dev/null &'
