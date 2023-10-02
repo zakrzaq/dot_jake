@@ -37,6 +37,9 @@ vim.keymap.set("n", "<leader>q", "<cmd>Bdelete<CR>", { desc = "[Q]uit current bu
 -- NeoGit
 vim.keymap.set("n", "<leader>gn", "<cmd>:Neogit<CR>", { desc = "[N]eo[G]it" })
 
+-- CUSTOM
+vim.keymap.set('n', '<C-f>', '<cmd>:silent !tmux neww tmux-sessionizer<CR>', { desc = "Create Tmux Session" })
+
 -- TELESCOPE
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers, { desc = "[F]ind existing [b]uffers" })

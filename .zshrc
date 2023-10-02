@@ -132,6 +132,8 @@ ssh -L 3000:localhost:3000 \
 function jcurl () { curl "$@" | json_pp | pygmentize -l json }
 function jcurl-v () { curl -v "$@" | json_pp | pygmentize -l json }
 
+bindkey -s ^f "tmux-sessionizer\n"
+
 # SSH
 alias home-pf='fn() { ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2" "$4"}; fn'
 alias home='fn() { ssh "$1"@192.168.21."$2" "$3" }; fn'
