@@ -207,6 +207,8 @@ bindsym $mod+shift+x exec i3lock --image ~/Pictures/Wallpapers/forest-road.jpg
 # font pango:System San Francisco Display 10
 font pango:FiraCode Nerd Font 10
 
+# sticky
+bindsym $mod+Shift+w sticky toggle 
 
 ###Color variables
 set $bg-color #2f343f
