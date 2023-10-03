@@ -53,9 +53,6 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+d exec "rofi -combi-modi window,drun,ssh -theme solarized -font 'hack 10' -show combi -icon-theme 'Papirus' -show-icons"
-bindsym $mod+Shift+d exec "sudo rofi -combi-modi window,drun,ssh -theme solarized -font 'hack 10' -show combi -icon-theme 'Papirus' -show-icons"
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -123,14 +120,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# Start i3status to display information about the current workspace
-exec --no-startup-id i3-msg 'workspace $ws1; exec ./Applications/WezTerm-20230712-072601-f4abf8fd-Ubuntu20.04.AppImage'
-exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
-exec --no-startup-id i3-msg 'workspace $ws3; exec google-chrome'
-exec --no-startup-id i3-msg 'workspace $ws5; exec geary'
-exec --no-startup-id i3-msg 'workspace $ws6; exec joplin; exec ./Applications/Todoist-linux-x86_64-8.8.0.AppImage;'
-exec --no-startup-id i3-msg 'workspace $ws4; exec google-chrome --app-id=hnpfjngllnobngcgfapefoaidbinmjnm;'
-exec --no-startup-id i3-msg 'workspace $ws4; exec google-chrome --app-id=cifhbcnohmdccbgoicgdjpfamggdegmo;'
 
 
 # switch to workspace
@@ -199,6 +188,9 @@ bindsym $mod+r mode "resize"
 
 # JAKE 
 
+# no title bar
+for_window [class="^.*"] border pixel 0
+
 # background
 exec_always feh --bg-scale ~/Pictures/Wallpapers/forest-road.jpg
 bindsym $mod+shift+x exec i3lock --image ~/Pictures/Wallpapers/forest-road.jpg
@@ -238,3 +230,21 @@ bar {
         urgent_workspace $urgent-bg-color $urgent-bg-color $text-color
     }
 }
+
+# ENVY
+exec xinput set-prop 12 "libinput Natural Scrolling Enabled" 1
+exec xinput set-prop 12 "libinput Tapping Enabled" 1
+
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+
+# STARTUP
+# Start i3status to display information about the current workspace
+# exec --no-startup-id i3-msg 'workspace $ws1; exec ./Applications/WezTerm-20230712-072601-f4abf8fd-Ubuntu20.04.AppImage'
+# exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
+# exec --no-startup-id i3-msg 'workspace $ws3; exec google-chrome'
+# exec --no-startup-id i3-msg 'workspace $ws5; exec geary'
+# exec --no-startup-id i3-msg 'workspace $ws6; exec joplin; exec ./Applications/Todoist-linux-x86_64-8.8.0.AppImage;'
+# exec --no-startup-id i3-msg 'workspace $ws4; exec google-chrome --app-id=hnpfjngllnobngcgfapefoaidbinmjnm;'
+# exec --no-startup-id i3-msg 'workspace $ws4; exec google-chrome --app-id=cifhbcnohmdccbgoicgdjpfamggdegmo;'
+
