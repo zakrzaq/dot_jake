@@ -202,6 +202,10 @@ font pango:FiraCode Nerd Font 10
 # sticky
 bindsym $mod+Shift+w sticky toggle 
 
+# gaps
+gaps inner 12
+gaps outer 4
+
 ###Color variables
 set $bg-color #414868
 set $inactive-bg-color #414868
@@ -235,8 +239,8 @@ bar {
 exec xinput set-prop 12 "libinput Natural Scrolling Enabled" 1
 exec xinput set-prop 12 "libinput Tapping Enabled" 1
 
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # STARTUP
 # Start i3status to display information about the current workspace
