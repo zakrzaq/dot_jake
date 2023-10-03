@@ -45,7 +45,8 @@ signal=10
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=
+color=#73daca
+label= 
 separator=false
 interval=30
 
@@ -71,7 +72,7 @@ interval=30
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
 #instance=wlan0
-color=#00FF00
+color=#73daca
 interval=10
 separator=false
 
@@ -89,9 +90,10 @@ interval=5
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
+color=#73daca
 label=
 interval=5
-min_width=CPU: 100.00%
+min_width=CPU:w100.00%
 #separator=false
 
 #[load_average]
