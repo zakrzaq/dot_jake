@@ -252,3 +252,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 # exec --no-startup-id i3-msg 'workspace $ws4; exec google-chrome --app-id=hnpfjngllnobngcgfapefoaidbinmjnm;'
 # exec --no-startup-id i3-msg 'workspace $ws4; exec google-chrome --app-id=cifhbcnohmdccbgoicgdjpfamggdegmo;'
 
+
+# EXEC 
+
+exec picom -f
