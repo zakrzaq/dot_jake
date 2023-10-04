@@ -105,7 +105,7 @@ min_width=CPU:w100.00%
 [battery]
 # label=BAT
 label= 
-instance=2
+instance=1
 interval=5
 
 # Date Time
