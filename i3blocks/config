@@ -24,7 +24,7 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/share/i3blocks/$BLOCK_NAME
+command=/home/jake/.config/i3blocks/$BLOCK_NAME
 separator_block_width=10
 markup=none
 
@@ -38,8 +38,9 @@ label=
 #label=♪
 instance=Master
 #instance=PCM
-interval=once
+interval=1
 signal=10
+command=/usr/share/i3blocks/volume 5 pulse
 
 # Memory usage
 #
@@ -135,9 +136,9 @@ interval=5
 # Support multiple chips, though lm-sensors.
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-#[temperature]
-#label=TEMP
-#interval=10
+# [temperature]
+# label=TEMP
+# interval=10
 
 # Key indicators
 #
@@ -145,12 +146,12 @@ interval=5
 #
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-#[keyindicator]
-#instance=CAPS
-#interval=once
-#signal=11
+# [keyindicator]
+# instance=CAPS
+# interval=once
+# signal=11
 
-#[keyindicator]
-#instance=NUM
-#interval=once
-#signal=11
+# [keyindicator]
+# instance=NUM
+# interval=once
+# signal=11
