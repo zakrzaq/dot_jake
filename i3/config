@@ -194,6 +194,7 @@ exec_always picom
 exec xrandr --output DisplayPort-0 --set TearFree on
 exec xrandr --output DisplayPort-1 --set TearFree on
 exec xrandr --output DisplayPort-2 --set TearFree on
+exec xrandr --output DP-1 --set TearFree on
 
 
 # no title bar
