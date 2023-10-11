@@ -208,6 +208,14 @@ alias syncth-bg='syncthing > /dev/null &'
 
 # DOCKER
 alias dc-ls='docker ps'
+alias dc-ps='docker ps'
+alias dc-killall='docker kill $(docker ps -q)'
+alias dc-ka='docker kill $(docker ps -q)'
+alias dc-stop='fn() { docker kill $(docker ps -qf expose=$1) }; fn'
+alias dc-st='fn() { docker kill $(docker ps -qf expose=$1) }; fn'
+alias dc-run='fn() { docker run -it -p $1:$1 $2 }; fn'
+alias dc-clean='docker rmi -f $(docker images -a -q)'
+alias dc-img='docker images -a'
 
 #UTILS
 alias edit-hosts='fn() { sudo nvim /etc/hosts && sudo dscacheutil -flashcache}; fn'
@@ -229,7 +237,7 @@ fi
 # ENVS
 export PATH="$HOME/app-repos/adr-tools/src/:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-source "$HOME/.openai_key.zsh"
+# source "$HOME/.openai_key.zsh"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
