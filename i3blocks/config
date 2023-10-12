@@ -86,6 +86,12 @@ separator=false
 #instance=eth0
 interval=5
 
+# CPU TEMP
+[cpu_temp]
+label= 
+interval=5
+separator=false
+
 # CPU usage
 #
 # The script may be called with -w and -c switches to specify thresholds,

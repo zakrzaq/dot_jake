@@ -1,0 +1,8 @@
+#! /bin/bash
+
+temp=$(sensors | grep "Package id" | cut -d' ' -f 5)
+display_temp=${temp:1:-2}
+
+
+echo "$display_temp"
+
