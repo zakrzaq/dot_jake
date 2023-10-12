@@ -142,6 +142,7 @@ alias bins='fn() { brew install $1 }; fn'
 
 # SYS TERM
 alias rmv='rm -rf'
+alias src-zsh='source ~/.zshrc; clear'
 alias cl='clear'
 alias x='exit'
 alias mkd='fn() { mkdir "$1" && cd "$1"; }; fn'
@@ -216,6 +217,9 @@ alias dc-st='fn() { docker kill $(docker ps -qf expose=$1) }; fn'
 alias dc-run='fn() { docker run -it -p $1:$1 $2 }; fn'
 alias dc-clean='docker rmi -f $(docker images -a -q)'
 alias dc-img='docker images -a'
+alias dc-sh='fn() { docker exec -it $(docker ps -qf expose=$1) sh }; fn'
+alias dc-up='docker compose up'
+alias dc-down='docker compose down'
 
 #UTILS
 alias edit-hosts='fn() { sudo nvim /etc/hosts && sudo dscacheutil -flashcache}; fn'
