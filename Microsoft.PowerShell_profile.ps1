@@ -105,6 +105,10 @@ function ips {
   ipconfig | select-string  ('(\s)+IPv4.+\s(?<IP>(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}))(\s)*') -AllMatches | %{ $_.Matches } | % { $_.Groups["IP"]} | %{ $_.Value }
 }
 
+function top {
+  Get-Process | Sort-Object -Property 'CPU' -Descending | Select-Object -First 10
+}
+
 
 # DIRS
 function Go-RA-APPS {
