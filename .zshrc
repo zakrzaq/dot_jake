@@ -243,5 +243,12 @@ export PATH="$HOME/app-repos/adr-tools/src/:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 # source "$HOME/.openai_key.zsh"
 
+# WSL-ENVS
+export PULSE_SERVER=tcp:$(grep nameserver /etc/resolv.conf | awk '{print $2}');
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+# export DISPLAY=$(ip route list default | awk '{print $3}'):0
+export LIBGL_ALWAYS_INDIRECT=1
+
+
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
