@@ -271,3 +271,5 @@ exec xrandr --output DP-1 --set TearFree on
 
 bindsym Control+Shift+0 exec ~/.screenlayout/desk-none.sh
 bindsym Control+Shift+1 exec ~/.screenlayout/desk-left.sh
+bindsym Control+Shift+2 exec ~/.screenlayout/desk-right.sh
+bindsym Control+Shift+9 exec ~/.screenlayout/desk-both.sh
