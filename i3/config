@@ -238,6 +238,10 @@ bar {
     }
 }
 
+# move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
+
 # ENVY
 exec xinput set-prop 12 "libinput Natural Scrolling Enabled" 1
 exec xinput set-prop 12 "libinput Tapping Enabled" 1
