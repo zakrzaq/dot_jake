@@ -270,3 +270,9 @@ exec xrandr --output DisplayPort-1 --set TearFree on
 exec xrandr --output DisplayPort-2 --set TearFree on
 exec xrandr --output DisplayPort-3 --set TearFree on
 exec xrandr --output DP-1 --set TearFree on
+
+# external monitor 
+bindsym Ctrl+Shift+0 exec ~/.screenlayout/laptop.sh
+bindsym Ctrl+Shift+1 exec ~/.screenlayout/hdmi.sh
+bindsym Ctrl+Shift+2 exec ~/.screenlayout/mirror.sh
+bindsym Ctrl+Shift+3 exec ~/.screenlayout/extend-h.sh
