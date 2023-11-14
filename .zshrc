@@ -150,6 +150,7 @@ alias we='watch echo'
 alias src='fn() { source ./"$1"/bin/activate }; fn'
 
 # GIT:
+alias gint='git init && git branch -m main'
 alias gst='git status'
 alias gsm='git switch master'
 alias gsn='git switch main'
