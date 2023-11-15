@@ -125,9 +125,10 @@ function jcurl-v () { curl -v "$@" | json_pp | pygmentize -l json }
 bindkey -s ^f "tmux-sessionizer\n"
 
 # SSH
-alias home-pf='fn() { ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2" "$4"}; fn'
 alias home='fn() { ssh "$1"@192.168.21."$2" "$3" }; fn'
+alias home-pf='fn() { ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2" "$4"}; fn'
 alias home-kitty='fn() {kitty +kitten ssh "$1"@192.168.21."$2";}; fn'
+alias home-kitty-pf='fn() {kitty +kitten ssh -L "$3":localhost:"$3" $1"@192.168.21."$2";}; fn'
 
 # SYS UBUNTU 
 alias aptupd='sudo apt update'
