@@ -130,6 +130,10 @@ alias home-pf='fn() { ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2" "$4"}; fn'
 alias home-kitty='fn() {kitty +kitten ssh "$1"@192.168.21."$2";}; fn'
 alias home-kitty-pf='fn() {kitty +kitten ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2";}; fn'
 
+# TMUX
+alias ta='tmux attach'
+alias td='tmux detach'
+
 # SYS UBUNTU 
 alias aptupd='sudo apt update'
 alias aptupg='sudo apt upgrade'
