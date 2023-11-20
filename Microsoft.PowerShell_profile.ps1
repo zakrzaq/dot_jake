@@ -137,7 +137,7 @@ function Dev-ApClient {
   Go-RA-Apps
   cd RA-AP-Client-Vue
   if ($args[0] -eq 'run') {
-  npm run dev 
+    npm run dev 
   } else {
     nvim
   }
