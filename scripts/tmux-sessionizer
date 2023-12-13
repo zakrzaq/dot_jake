@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-session=$(find ~/dev -mindepth 1 -maxdepth 2 -type d | fzf)
+session=$(find ~/dev ~/mrs-dev ~/jake-dev -mindepth 1 -maxdepth 2 -type d | fzf)
 session_name=$(basename "$session" | tr . _)
 echo $session_name
 echo $session
