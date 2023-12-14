@@ -81,6 +81,16 @@ vim.keymap.set("n", "<leader>gL", "<cmd>:Gitsigns blame_line<CR>", { desc = "[G]
 vim.keymap.set({ "n", "v" }, "<leader>t", ":Neotree toggle<CR>", { silent = true, desc = "Neo[T]ree Toggle" })
 
 -- URL-OPEN
-vim.keymap.set("n", "uo", "<esc>:URLOpenUnderCursor<cr>")
-vim.keymap.set("n", "us", "<esc>:URLOpenHighlightAll<cr>")
-vim.keymap.set("n", "uS", "<esc>:URLOpenHighlightAllClear<cr>")
+vim.keymap.set(
+	"n",
+	"<leader>uo",
+	"<esc>:URLOpenUnderCursor<cr>",
+	{ silent = true, desc = "[u][u]RL under cursor open" }
+)
+vim.keymap.set("n", "<leader>us", "<esc>:URLOpenHighlightAll<cr>", { silent = true, desc = "[u]RL highlight all" })
+vim.keymap.set(
+	"n",
+	"<leader>uS",
+	"<esc>:URLOpenHighlightAllClear<cr>",
+	{ silent = true, desc = "[u]RL clear highlight all" }
+)

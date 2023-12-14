@@ -270,3 +270,15 @@ exec xrandr --output DisplayPort-1 --set TearFree on
 exec xrandr --output DisplayPort-2 --set TearFree on
 exec xrandr --output DisplayPort-3 --set TearFree on
 exec xrandr --output DP-1 --set TearFree on
+
+# screen managment
+
+bindsym Control+Shift+0 exec ~/.screenlayout/desk-none.sh
+bindsym Control+Shift+1 exec ~/.screenlayout/desk-left.sh
+bindsym Control+Shift+2 exec ~/.screenlayout/desk-right.sh
+bindsym Control+Shift+9 exec ~/.screenlayout/desk-both.sh
+
+# mouse and keyboard script
+
+bindsym Control+Shift+k exec ~/.local/bin/con-peripherials.sh
+
