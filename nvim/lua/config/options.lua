@@ -13,14 +13,14 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 vim.opt.cursorline = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.breakindent = true
 vim.opt.undofile = true
@@ -31,7 +31,7 @@ vim.opt.updatetime = 250
 vim.opt.timeout = true
 vim.opt.timeoutlen = 300
 
-vim.opt.completeopt = 'menuone,noselect'
+vim.opt.completeopt = "menuone,noselect"
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true

@@ -14,8 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- GIT
 	{ "NeogitOrg/neogit", dependencies = "nvim-lua/plenary.nvim", config = true },
-	-- 'tpope/vim-fugitive',
-	-- 'tpope/vim-rhubarb',
+	"tveskag/nvim-blame-line",
 
 	-- TAB SHIFT WIDTH
 	"tpope/vim-sleuth",
@@ -24,12 +23,16 @@ require("lazy").setup({
 	{ "nordtheme/vim" },
 	{ "rebelot/kanagawa.nvim" },
 	{
-		"folke/tokyonight.nvim",
+		"catppuccin/nvim",
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("tokyonight")
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
+	{
+		"oxfist/night-owl.nvim",
+	},
+	{ "folke/tokyonight.nvim" },
 	{ "morhetz/gruvbox" },
 	{ "sainnhe/everforest" },
 	{ "EdenEast/nightfox.nvim" },
@@ -39,7 +42,6 @@ require("lazy").setup({
 	-- UI
 	{ "akinsho/bufferline.nvim", opts = {} },
 	{ "moll/vim-bbye" },
-	"tpope/vim-surround",
 	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
 	{ "windwp/nvim-ts-autotag", opts = {} },
 	{ "brenoprata10/nvim-highlight-colors", opts = { enable_tailwind = true } },
@@ -57,7 +59,7 @@ require("lazy").setup({
 		opts = {
 			options = {
 				icons_enabled = false,
-				theme = "tokyonight",
+				theme = "catppuccin",
 				component_separators = "|",
 				section_separators = "",
 			},
@@ -94,7 +96,18 @@ require("lazy").setup({
 	},
 	{ "numToStr/Comment.nvim", opts = {} },
 	{ "folke/todo-comments.nvim", opts = {} },
-
+	{
+		"sontungexpt/url-open",
+		event = "VeryLazy",
+		cmd = "URLOpenUnderCursor",
+		config = function()
+			local status_ok, url_open = pcall(require, "url-open")
+			if not status_ok then
+				return
+			end
+			url_open.setup({})
+		end,
+	},
 	-- TELESCOPE
 	{
 		"nvim-telescope/telescope.nvim",
@@ -166,8 +179,13 @@ require("lazy").setup({
 			"williamboman/mason-lspconfig.nvim",
 			{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 			"folke/neodev.nvim",
-			{ "jose-elias-alvarez/null-ls.nvim" },
 		},
+	},
+
+	-- FORMATTING
+	{
+		"stevearc/conform.nvim",
+		opts = {},
 	},
 
 	-- GPT
