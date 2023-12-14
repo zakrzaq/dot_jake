@@ -61,7 +61,7 @@ local servers = {
 			"typescript.tsx",
 		},
 	},
-	pyright = {},
+	ruff_lsp = {},
 	eslint = {
 		enable = true,
 		format = { enable = true }, -- this will enable formatting

@@ -129,6 +129,8 @@ alias home='fn() { ssh "$1"@192.168.21."$2" "$3" }; fn'
 alias home-pf='fn() { ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2" "$4"}; fn'
 alias home-kitty='fn() {kitty +kitten ssh "$1"@192.168.21."$2";}; fn'
 alias home-kitty-pf='fn() {kitty +kitten ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2";}; fn'
+alias nch-juke='fn() { ssh -oHostKeyAlgorithms=ssh-rsa,ssh-dss -p 21098 jukeuklg@jukesites.com
+ }; fn'
 
 # TMUX
 alias ta='tmux attach'
@@ -251,3 +253,11 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pnpm
+export PNPM_HOME="/home/jake/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
