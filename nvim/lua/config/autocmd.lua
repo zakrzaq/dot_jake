@@ -7,17 +7,17 @@ vim.diagnostic.config({
 vim.cmd([[ autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 
 -- DIAGNOSTICS ICONS
-vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
-vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
-vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 -- SAVE FOLD ON FILE SAVE
 local group = vim.api.nvim_create_augroup("AutoSaveFolds", { clear = true })
 
-vim.api.nvim_create_autocmd({ "BufLeave" }, { command = "mkview",pattern =".*", group = group })
+vim.api.nvim_create_autocmd({ "BufLeave" }, { command = "mkview", pattern = ".*", group = group })
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, { command = "loadview",pattern=".*", group = group })
+vim.api.nvim_create_autocmd({ "BufEnter" }, { command = "loadview", pattern = ".*", group = group })
 
 -- MARKDOWN CONCEAL
 -- vim.cmd[[
