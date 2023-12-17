@@ -15,7 +15,7 @@ end
 -- #############################################################################
 -- Setting Up Telescope
 local actions = TelescopeActions
-Telescope.setup {
+Telescope.setup({
 	defaults = {
 		layout_config = {
 			width = 0.80,
@@ -68,6 +68,6 @@ Telescope.setup {
 			},
 		},
 	},
-}
+})
 
-pcall(require('telescope').load_extension, 'fzf')
+pcall(require("telescope").load_extension, "fzf")

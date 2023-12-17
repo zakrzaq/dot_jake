@@ -9,8 +9,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- center screen when searching/navigating
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
--- vim.keymap.set("n", "n", "nzzzv")
--- vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
 vim.keymap.set({ "n", "x" }, "x", '"_x')
 
 -- copy/paste
@@ -38,7 +38,7 @@ vim.keymap.set("n", "<leader>q", "<cmd>Bdelete<CR>", { desc = "[Q]uit current bu
 vim.keymap.set("n", "<leader>gn", "<cmd>:Neogit<CR>", { desc = "[N]eo[G]it" })
 
 -- CUSTOM
-vim.keymap.set('n', '<C-f>', '<cmd>:silent !tmux neww tmux-sessionizer<CR>', { desc = "Create Tmux Session" })
+vim.keymap.set("n", "<C-f>", "<cmd>:silent !tmux neww tmux-sessionizer<CR>", { desc = "Create Tmux Session" })
 
 -- TELESCOPE
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
@@ -74,7 +74,23 @@ vim.keymap.set("n", "<leader>gs", "<cmd>:Telescope git_status<CR>", { desc = "[G
 vim.keymap.set("n", "<leader>gc", "<cmd>:Telescope git_commits<CR>", { desc = "[G]it [C]ommits" })
 vim.keymap.set("n", "<leader>gb", "<cmd>:Telescope git_branches<CR>", { desc = "[G]it [B]ranches" })
 vim.keymap.set("n", "<leader>gt", "<cmd>:Telescope git_stash<CR>", { desc = "[G]it s[T]ash" })
-vim.keymap.set("n", "<leader>gl", "<cmd>:Gitsigns blame_line<CR>", { desc = "[G]it b[L]ame" })
+vim.keymap.set("n", "<leader>gl", "<cmd>:ToggleBlameLine<cr>", { silent = true, desc = "[G]it b[L]ame line" })
+vim.keymap.set("n", "<leader>gL", "<cmd>:Gitsigns blame_line<CR>", { desc = "[G]it b[L]ame popup" })
 
 -- NEOTREE
 vim.keymap.set({ "n", "v" }, "<leader>t", ":Neotree toggle<CR>", { silent = true, desc = "Neo[T]ree Toggle" })
+
+-- URL-OPEN
+vim.keymap.set(
+	"n",
+	"<leader>uo",
+	"<esc>:URLOpenUnderCursor<cr>",
+	{ silent = true, desc = "[u][u]RL under cursor open" }
+)
+vim.keymap.set("n", "<leader>us", "<esc>:URLOpenHighlightAll<cr>", { silent = true, desc = "[u]RL highlight all" })
+vim.keymap.set(
+	"n",
+	"<leader>uS",
+	"<esc>:URLOpenHighlightAllClear<cr>",
+	{ silent = true, desc = "[u]RL clear highlight all" }
+)
