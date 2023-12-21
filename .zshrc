@@ -235,6 +235,7 @@ alias dus='fn() { du -h --max-depth=1 $1 | sort -hr }; fn'
 alias rmv-dirs='fn() { find . -name $1 -type d -prune -exec rm -rf '{}' + }; fn'
 alias cheat='fn() { curl cheat.sh/$1 }; fn'
 alias vt="vtop -t brew"
+alias tt="taskwarrior-tui"
 
 # NVM CONFIG
 NVM_LOADER=/usr/share/nvm/init-nvm.sh
