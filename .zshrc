@@ -230,8 +230,10 @@ alias dc-up='docker compose up'
 alias dc-down='docker compose down'
 
 #UTILS
+alias rsh="source ~/.zshrc"
 alias edit-hosts='fn() { sudo nvim /etc/hosts && sudo dscacheutil -flashcache}; fn'
 alias dus='fn() { du -h --max-depth=1 $1 | sort -hr }; fn'
+alias dfh="df -h | grep home | awk '{print \$4}'"
 alias rmv-dirs='fn() { find . -name $1 -type d -prune -exec rm -rf '{}' + }; fn'
 alias cheat='fn() { curl cheat.sh/$1 }; fn'
 alias vt="vtop -t brew"
