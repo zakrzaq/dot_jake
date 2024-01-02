@@ -282,3 +282,6 @@ bindsym Control+Shift+9 exec ~/.screenlayout/desk-both.sh
 
 bindsym Control+Shift+k exec ~/.local/bin/con-peripherials.sh
 
+# ubuntu policies
+
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
