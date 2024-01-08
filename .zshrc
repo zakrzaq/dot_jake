@@ -129,6 +129,8 @@ alias home='fn() { ssh "$1"@192.168.21."$2" "$3" }; fn'
 alias home-pf='fn() { ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2" "$4"}; fn'
 alias home-kitty='fn() {kitty +kitten ssh "$1"@192.168.21."$2";}; fn'
 alias home-kitty-pf='fn() {kitty +kitten ssh -L "$3":localhost:"$3" "$1"@192.168.21."$2";}; fn'
+alias nch-juke='fn() { ssh -oHostKeyAlgorithms=ssh-rsa,ssh-dss -p 21098 jukeuklg@jukesites.com
+ }; fn'
 
 # TMUX
 alias ta='tmux attach'
@@ -228,11 +230,14 @@ alias dc-up='docker compose up'
 alias dc-down='docker compose down'
 
 #UTILS
+alias rsh="source ~/.zshrc"
 alias edit-hosts='fn() { sudo nvim /etc/hosts && sudo dscacheutil -flashcache}; fn'
 alias dus='fn() { du -h --max-depth=1 $1 | sort -hr }; fn'
+alias dfh="df -h | grep home | awk '{print \$4}'"
 alias rmv-dirs='fn() { find . -name $1 -type d -prune -exec rm -rf '{}' + }; fn'
 alias cheat='fn() { curl cheat.sh/$1 }; fn'
 alias vt="vtop -t brew"
+alias tt="taskwarrior-tui"
 
 # NVM CONFIG
 NVM_LOADER=/usr/share/nvm/init-nvm.sh
@@ -251,3 +256,11 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pnpm
+export PNPM_HOME="/home/jake/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
