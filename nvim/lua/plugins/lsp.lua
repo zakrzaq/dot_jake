@@ -91,6 +91,7 @@ local servers = {
 			diagnostics = { globals = { "vim" } },
 		},
 	},
+	intelephense = {},
 }
 
 require("neodev").setup()

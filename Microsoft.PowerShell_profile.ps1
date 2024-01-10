@@ -8,6 +8,11 @@ function get-current-branch {
   return git rev-parse --abbrev-ref HEAD
 }
 
+# SYS
+function pwsh {
+  oh-my-posh init pwsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/powerlevel10k_rainbow.omp.json' | Invoke-Expression
+}
+
 # GIT
 function gsm {
   git checkout master
@@ -137,7 +142,7 @@ function Dev-ApClient {
   Go-RA-Apps
   cd RA-AP-Client-Vue
   if ($args[0] -eq 'run') {
-  npm run dev 
+    npm run dev 
   } else {
     nvim
   }
