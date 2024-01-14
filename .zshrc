@@ -211,6 +211,7 @@ alias gstd='fn() { git stash drop stash@\{"$1"\} }; fn'
 
 # NVIM
 alias nv='nvim'
+alias lv='NVIM_APPNAME="lazyvim" nvim'
 
 # WSL Specific
 alias syncth-bg='syncthing > /dev/null &'
