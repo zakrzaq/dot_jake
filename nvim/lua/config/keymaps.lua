@@ -95,3 +95,23 @@ vim.keymap.set(
 	"<esc>:URLOpenHighlightAllClear<cr>",
 	{ silent = true, desc = "[u]RL clear highlight all" }
 )
+
+-- TROUBLE
+vim.keymap.set("n", "<leader>xx", function()
+	require("trouble").toggle()
+end, { desc = "toggle diagnosti[X]" })
+vim.keymap.set("n", "<leader>xw", function()
+	require("trouble").toggle("workspace_diagnostics")
+end, { desc = "toggle [W]orkspace diagnostics" })
+vim.keymap.set("n", "<leader>xd", function()
+	require("trouble").toggle("document_diagnostics")
+end, { desc = "toggle [D]ocument diagnostics" })
+vim.keymap.set("n", "<leader>xq", function()
+	require("trouble").toggle("quickfix")
+end, { desc = "toggle [Q]uickfix" })
+vim.keymap.set("n", "<leader>xl", function()
+	require("trouble").toggle("loclist")
+end, { desc = "toggle [L]loclist" })
+vim.keymap.set("n", "gR", function()
+	require("trouble").toggle("lsp_references")
+end)
