@@ -210,4 +210,11 @@ require("lazy").setup({
 			require("codeium").setup({})
 		end,
 	},
+
+	-- TROUBLE
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {},
+	},
 }, {})
