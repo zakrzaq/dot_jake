@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>ue", vim.cmd.Explore, { desc = "Nvim Explorer" })
+vim.keymap.set("i", "jj", "<ESC>", { silent = true })
 
 -- move selected up/down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
