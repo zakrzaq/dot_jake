@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- GIT
-	{ "NeogitOrg/neogit", dependencies = "nvim-lua/plenary.nvim", config = true },
+	{ "NeogitOrg/neogit",      dependencies = "nvim-lua/plenary.nvim", config = true },
 	"tveskag/nvim-blame-line",
 
 	-- TAB SHIFT WIDTH
@@ -22,28 +22,26 @@ require("lazy").setup({
 	-- THEME
 	{ "nordtheme/vim" },
 	{ "rebelot/kanagawa.nvim" },
-	{
-		"catppuccin/nvim",
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("catppuccin")
-		end,
-	},
-	{
-		"oxfist/night-owl.nvim",
-	},
+	{ "catppuccin/nvim" },
+	{ "oxfist/night-owl.nvim" },
 	{ "folke/tokyonight.nvim" },
 	{ "morhetz/gruvbox" },
 	{ "sainnhe/everforest" },
 	{ "EdenEast/nightfox.nvim" },
-	{ "rose-pine/neovim" },
+	{
+		"rose-pine/neovim",
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("rose-pine-moon")
+		end,
+	},
 	{ "projekt0n/caret.nvim" },
 
 	-- UI
-	{ "akinsho/bufferline.nvim", opts = {} },
+	{ "akinsho/bufferline.nvim",            opts = {} },
 	{ "moll/vim-bbye" },
-	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
-	{ "windwp/nvim-ts-autotag", opts = {} },
+	{ "windwp/nvim-autopairs",              event = "InsertEnter",            opts = {} },
+	{ "windwp/nvim-ts-autotag",             opts = {} },
 	{ "brenoprata10/nvim-highlight-colors", opts = { enable_tailwind = true } },
 	{
 		"akinsho/toggleterm.nvim",
@@ -53,7 +51,7 @@ require("lazy").setup({
 			shade_terminals = true,
 		},
 	},
-	{ "folke/which-key.nvim", opts = {} },
+	{ "folke/which-key.nvim",     opts = {} },
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = {
@@ -94,7 +92,7 @@ require("lazy").setup({
 			})
 		end,
 	},
-	{ "numToStr/Comment.nvim", opts = {} },
+	{ "numToStr/Comment.nvim",    opts = {} },
 	{ "folke/todo-comments.nvim", opts = {} },
 	{
 		"sontungexpt/url-open",
