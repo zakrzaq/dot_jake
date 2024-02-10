@@ -112,7 +112,7 @@ source $ZSH/oh-my-zsh.sh
 
 # SETUP
 
-  # Enable brew for second user on mac
+# Enable brew for second user on mac
 if uname -a | grep -q 'Darwin'; then
   export PATH=$PATH:/opt/homebrew/bin
 fi
@@ -265,6 +265,8 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+# STARTSHIP
+eval "$(starship init zsh)"
 
 # ADITIONAL ALIASES
 source ~/aliases.zsh
