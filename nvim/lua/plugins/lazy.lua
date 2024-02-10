@@ -197,12 +197,13 @@ require("lazy").setup({
 	-- 	},
 	-- },
 
-	-- CODIUM
+	-- CODEIUM
 	{
 		"jcdickinson/codeium.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"hrsh7th/nvim-cmp",
+			"onsails/lspkind.nvim",
 		},
 		config = function()
 			require("codeium").setup({})
@@ -211,6 +212,37 @@ require("lazy").setup({
 
 	-- COPILOT
 	-- { "github/copilot.vim" },
+
+	-- OBSIDIAN
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
+		lazy = true,
+		ft = "markdown",
+		-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+		-- event = {
+		--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+		--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+		--   "BufReadPre path/to/my-vault/**.md",
+		--   "BufNewFile path/to/my-vault/**.md",
+		-- },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		opts = {
+			workspaces = {
+				{
+					name = "personal",
+					path = "~/Dropbox/Apps/jakebook",
+				},
+				-- {
+				-- 	name = "work",
+				-- 	path = "~/vaults/work",
+				-- },
+			},
+
+		},
+	},
 
 	-- TROUBLE
 	{
