@@ -32,7 +32,7 @@ require("lazy").setup({
 		"rose-pine/neovim",
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("rose-pine-moon")
+			vim.cmd.colorscheme("rose-pine")
 		end,
 	},
 	{ "projekt0n/caret.nvim" },
@@ -57,7 +57,7 @@ require("lazy").setup({
 		opts = {
 			options = {
 				icons_enabled = false,
-				theme = "catppuccin",
+				theme = "rose-pine",
 				component_separators = "|",
 				section_separators = "",
 			},
@@ -208,6 +208,9 @@ require("lazy").setup({
 			require("codeium").setup({})
 		end,
 	},
+
+	-- COPILOT
+	-- { "github/copilot.vim" },
 
 	-- TROUBLE
 	{
