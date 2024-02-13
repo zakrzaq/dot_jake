@@ -29,24 +29,24 @@ local on_attach = function(_, bufnr)
 	nmap("[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 	nmap("]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 
-	-- vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-	-- 	local eslint_list = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
-	--
-	-- 	local function contains(list, x)
-	-- 		for _, v in pairs(list) do
-	-- 			if v == x then
-	-- 				return true
-	-- 			end
-	-- 		end
-	-- 		return false
-	-- 	end
-	--
-	-- 	if contains(eslint_list, vim.bo.filetype) then
-	-- 		vim.cmd("EslintFixAll")
-	-- 	else
-	-- 		vim.lsp.buf.format()
-	-- 	end
-	-- end, { desc = "Format current buffer with LSP" })
+	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+		local eslint_list = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
+
+		local function contains(list, x)
+			for _, v in pairs(list) do
+				if v == x then
+					return true
+				end
+			end
+			return false
+		end
+
+		if contains(eslint_list, vim.bo.filetype) then
+			vim.cmd("EslintFixAll")
+		else
+			vim.lsp.buf.format()
+		end
+	end, { desc = "Format current buffer with LSP" })
 end
 
 local servers = {
