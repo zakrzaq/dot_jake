@@ -270,3 +270,5 @@ eval "$(starship init zsh)"
 
 # ADITIONAL ALIASES
 source ~/aliases.zsh
+
+eval "$(starship init zsh)"
