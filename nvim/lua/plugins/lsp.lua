@@ -42,9 +42,12 @@ local on_attach = function(_, bufnr)
 		end
 
 		if contains(eslint_list, vim.bo.filetype) then
-			vim.cmd("EslintFixAll")
+			require("conform").format()
+			-- vim.lsp.buf.format()
+			-- vim.cmd("EslintFixAll")
 		else
-			vim.lsp.buf.format()
+			require("conform").format()
+			-- vim.lsp.buf.format()
 		end
 	end, { desc = "Format current buffer with LSP" })
 end
