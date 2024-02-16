@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- GIT
-	{ "NeogitOrg/neogit",      dependencies = "nvim-lua/plenary.nvim", config = true },
+	{ "NeogitOrg/neogit", dependencies = "nvim-lua/plenary.nvim", config = true },
 	"tveskag/nvim-blame-line",
 
 	-- TAB SHIFT WIDTH
@@ -38,10 +38,10 @@ require("lazy").setup({
 	{ "projekt0n/caret.nvim" },
 
 	-- UI
-	{ "akinsho/bufferline.nvim",            opts = {} },
+	{ "akinsho/bufferline.nvim", opts = {} },
 	{ "moll/vim-bbye" },
-	{ "windwp/nvim-autopairs",              event = "InsertEnter",            opts = {} },
-	{ "windwp/nvim-ts-autotag",             opts = {} },
+	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
+	{ "windwp/nvim-ts-autotag", opts = {} },
 	{ "brenoprata10/nvim-highlight-colors", opts = { enable_tailwind = true } },
 	{
 		"akinsho/toggleterm.nvim",
@@ -51,7 +51,7 @@ require("lazy").setup({
 			shade_terminals = true,
 		},
 	},
-	{ "folke/which-key.nvim",     opts = {} },
+	{ "folke/which-key.nvim", opts = {} },
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = {
@@ -60,6 +60,26 @@ require("lazy").setup({
 				theme = "rose-pine",
 				component_separators = "|",
 				section_separators = "",
+			},
+			sections = {
+				lualine_x = {
+					function()
+						local ok, pomo = pcall(require, "pomo")
+						if not ok then
+							return ""
+						end
+
+						local timer = pomo.get_first_to_finish()
+						if timer == nil then
+							return ""
+						end
+
+						return "󰄉 " .. tostring(timer)
+					end,
+					"encoding",
+					"fileformat",
+					"filetype",
+				},
 			},
 		},
 	},
@@ -92,7 +112,7 @@ require("lazy").setup({
 			})
 		end,
 	},
-	{ "numToStr/Comment.nvim",    opts = {} },
+	{ "numToStr/Comment.nvim", opts = {} },
 	{ "folke/todo-comments.nvim", opts = {} },
 	{
 		"sontungexpt/url-open",
@@ -104,6 +124,14 @@ require("lazy").setup({
 				return
 			end
 			url_open.setup({})
+		end,
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
 		end,
 	},
 	-- TELESCOPE
@@ -240,8 +268,19 @@ require("lazy").setup({
 				-- 	path = "~/vaults/work",
 				-- },
 			},
-
 		},
+	},
+
+	-- POMODORO
+	{
+		"epwalsh/pomo.nvim",
+		version = "*", -- Recommended, use latest release instead of latest commit
+		lazy = true,
+		cmd = { "TimerStart", "TimerRepeat" },
+		dependencies = {
+			"rcarriga/nvim-notify",
+		},
+		opts = {},
 	},
 
 	-- TROUBLE
