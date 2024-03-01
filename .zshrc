@@ -15,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -112,7 +112,7 @@ source $ZSH/oh-my-zsh.sh
 
 # SETUP
 
-  # Enable brew for second user on mac
+# Enable brew for second user on mac
 if uname -a | grep -q 'Darwin'; then
   export PATH=$PATH:/opt/homebrew/bin
 fi
@@ -211,6 +211,7 @@ alias gstd='fn() { git stash drop stash@\{"$1"\} }; fn'
 
 # NVIM
 alias nv='nvim'
+alias lv='NVIM_APPNAME="lazyvim" nvim'
 
 # WSL Specific
 alias syncth-bg='syncthing > /dev/null &'
@@ -263,4 +264,11 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
+
+# STARTSHIP
+eval "$(starship init zsh)"
+
+# ADITIONAL ALIASES
+source ~/aliases.zsh
+
+eval "$(starship init zsh)"

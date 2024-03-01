@@ -22,21 +22,19 @@ require("lazy").setup({
 	-- THEME
 	{ "nordtheme/vim" },
 	{ "rebelot/kanagawa.nvim" },
-	{
-		"catppuccin/nvim",
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("catppuccin")
-		end,
-	},
-	{
-		"oxfist/night-owl.nvim",
-	},
+	{ "catppuccin/nvim" },
+	{ "oxfist/night-owl.nvim" },
 	{ "folke/tokyonight.nvim" },
 	{ "morhetz/gruvbox" },
 	{ "sainnhe/everforest" },
 	{ "EdenEast/nightfox.nvim" },
-	{ "rose-pine/neovim" },
+	{
+		"rose-pine/neovim",
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("rose-pine")
+		end,
+	},
 	{ "projekt0n/caret.nvim" },
 
 	-- UI
@@ -59,9 +57,29 @@ require("lazy").setup({
 		opts = {
 			options = {
 				icons_enabled = false,
-				theme = "catppuccin",
+				theme = "rose-pine",
 				component_separators = "|",
 				section_separators = "",
+			},
+			sections = {
+				lualine_x = {
+					function()
+						local ok, pomo = pcall(require, "pomo")
+						if not ok then
+							return ""
+						end
+
+						local timer = pomo.get_first_to_finish()
+						if timer == nil then
+							return ""
+						end
+
+						return "󰄉 " .. tostring(timer)
+					end,
+					"encoding",
+					"fileformat",
+					"filetype",
+				},
 			},
 		},
 	},
@@ -106,6 +124,14 @@ require("lazy").setup({
 				return
 			end
 			url_open.setup({})
+		end,
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
 		end,
 	},
 	-- TELESCOPE
@@ -199,15 +225,68 @@ require("lazy").setup({
 	-- 	},
 	-- },
 
-	-- CODIUM
+	-- CODEIUM
 	{
 		"jcdickinson/codeium.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"hrsh7th/nvim-cmp",
+			"onsails/lspkind.nvim",
 		},
 		config = function()
 			require("codeium").setup({})
 		end,
+	},
+
+	-- COPILOT
+	-- { "github/copilot.vim" },
+
+	-- OBSIDIAN
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
+		lazy = true,
+		ft = "markdown",
+		-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+		-- event = {
+		--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+		--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+		--   "BufReadPre path/to/my-vault/**.md",
+		--   "BufNewFile path/to/my-vault/**.md",
+		-- },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		opts = {
+			workspaces = {
+				{
+					name = "personal",
+					path = "~/Dropbox/Apps/jakebook",
+				},
+				-- {
+				-- 	name = "work",
+				-- 	path = "~/vaults/work",
+				-- },
+			},
+		},
+	},
+
+	-- POMODORO
+	{
+		"epwalsh/pomo.nvim",
+		version = "*", -- Recommended, use latest release instead of latest commit
+		lazy = true,
+		cmd = { "TimerStart", "TimerRepeat" },
+		dependencies = {
+			"rcarriga/nvim-notify",
+		},
+		opts = {},
+	},
+
+	-- TROUBLE
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {},
 	},
 }, {})

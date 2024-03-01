@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>ue", vim.cmd.Explore, { desc = "Nvim Explorer" })
+vim.keymap.set("i", "jj", "<ESC>", { silent = true })
 
 -- move selected up/down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -25,9 +26,11 @@ vim.keymap.set("n", "<C-s>", "<cmd>Format<cr> <cmd>write<cr>", { desc = "[W]writ
 vim.keymap.set("n", "]b", "<cmd>:bn<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "[b", "<cmd>:bp<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<M-h>", "<C-w>h")
+vim.keymap.set("n", "<M-j>", "<C-w>j")
+vim.keymap.set("n", "<M-k>", "<C-w>k")
+vim.keymap.set("n", "<M-l>", "<C-w>l")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
@@ -94,3 +97,46 @@ vim.keymap.set(
 	"<esc>:URLOpenHighlightAllClear<cr>",
 	{ silent = true, desc = "[u]RL clear highlight all" }
 )
+
+-- TROUBLE
+vim.keymap.set("n", "<leader>xx", function()
+	require("trouble").toggle()
+end, { desc = "toggle diagnosti[X]" })
+vim.keymap.set("n", "<leader>xw", function()
+	require("trouble").toggle("workspace_diagnostics")
+end, { desc = "toggle [W]orkspace diagnostics" })
+vim.keymap.set("n", "<leader>xd", function()
+	require("trouble").toggle("document_diagnostics")
+end, { desc = "toggle [D]ocument diagnostics" })
+vim.keymap.set("n", "<leader>xq", function()
+	require("trouble").toggle("quickfix")
+end, { desc = "toggle [Q]uickfix" })
+vim.keymap.set("n", "<leader>xl", function()
+	require("trouble").toggle("loclist")
+end, { desc = "toggle [L]loclist" })
+vim.keymap.set("n", "gR", function()
+	require("trouble").toggle("lsp_references")
+end)
+
+-- POMODORO
+vim.keymap.set("n", "<leader>pss", "<cmd>:TimerStart 25m<cr>", { desc = "Start [P]omodoro 25m", silent = true })
+vim.keymap.set("n", "<leader>psl", "<cmd>:TimerStart55m<cr>", { desc = "Start [P]omodoro 55m", silent = true })
+vim.keymap.set("n", "<leader>pb5", "<cmd>:TimerStart 5m<cr>", { desc = "Start [P]omodoro break 5m", silent = true })
+vim.keymap.set("n", "<leader>pbl", "<cmd>:TimerStart 15m<cr>", { desc = "Start [P]omodoro break 15m", silent = true })
+vim.keymap.set("n", "<leader>pe", "<cmd>:TimerStop<cr>", { desc = "Stop [P]omodoro", silent = true })
+vim.keymap.set("n", "<leader>pp", "<cmd>:TimerPause<cr>", { desc = "Pause [P]omodoro", silent = true })
+vim.keymap.set("n", "<leader>pr", "<cmd>:TimerResume<cr>", { desc = "Resume [P]omodoro", silent = true })
+vim.keymap.set("n", "<leader>pns", "<cmd>:TimerShow<cr>", { desc = "[P]omodoro [n]otification [s]how", silent = true })
+vim.keymap.set("n", "<leader>pnh", "<cmd>:TimerHide<cr>", { desc = "[P]omodoro [n]otification [h]ide", silent = true })
+
+-- OBSIDIAN
+vim.keymap.set({"n", "v"}, "<leader>oo", "<cmd>:ObsidianQuickSwitch<cr>", { desc = "[O]bsidian [o]pen", silent = true })
+vim.keymap.set({"n", "v"}, "<leader>os", "<cmd>:ObsidianSearch<cr>", { desc = "[O]bsidian [s]earch", silent = true })
+vim.keymap.set({"n", "v"}, "<leader>on", "<cmd>:ObsidianNew<cr>", { desc = "[O]bsidian [n]new note", silent = true })
+vim.keymap.set({"n", "v"}, "<leader>or", "<cmd>:ObsidianRename<cr>", { desc = "[O]bsidian [r]ename note", silent = true })
+vim.keymap.set({"n", "v"}, "<leader>ot", "<cmd>:ObsidianToday<cr>", { desc = "[O]bsidian [t]odayn", silent = true })
+vim.keymap.set({"n", "v"}, "<leader>oy", "<cmd>:ObsidianYesterday<cr>", { desc = "[O]bsidian [y]esterday", silent = true })
+vim.keymap.set({"n", "v"}, "<leader>om", "<cmd>:ObsidianTomorrow<cr>", { desc = "[O]bsidian to[m]orrow", silent = true })
+vim.keymap.set({"n", "v"}, "<leader>ol", "<cmd>:ObsidianTemplate<cr>", { desc = "[O]bsidian temp[l]ete", silent = true })
+vim.keymap.set({"n", "v"}, "<leader>oe", "<cmd>:ObsidianExtractNote <cr>", { desc = "[O]bsidian [e]extract to new note", silent = true })
+vim.keymap.set({"n", "v"}, "<leader>ow", "<cmd>:ObsidianWorkspace <cr>", { desc = "[O]bsidian [e]extract to new note", silent = true })
