@@ -6,6 +6,5 @@ require("plugins.gitsigns")
 require("plugins.autocmp")
 require("plugins.lsp")
 require("plugins.conform")
--- require("plugins.null-ls")
 -- require("plugins.gpt")
-
+require("plugins.trouble")
