@@ -210,12 +210,12 @@ gaps inner 12
 gaps outer 4
 
 ###Color variables
-set $bg-color #24283b
-set $active-bg-color #7982a9 
-set $inactive-bg-color #24283b
-set $text-color #f3f4f5
+set $bg-color #232136
+set $active-bg-color #f6c177
+set $inactive-bg-color #232136
+set $text-color #4e495d
 set $inactive-text-color #676E7D
-set $urgent-bg-color #f7768e
+set $urgent-bg-color #d7827e
 
 ###Window colors  
 ###Fields: identifier border background text indicator
