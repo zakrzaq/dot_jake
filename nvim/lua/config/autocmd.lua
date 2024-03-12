@@ -1,10 +1,10 @@
 -- VIRTUAL TEXT OFF
-vim.diagnostic.config({
-	float = { source = "always", border = "rounded" },
-	virtual_text = false,
-	signs = true,
-})
-vim.cmd([[ autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+-- vim.diagnostic.config({
+-- 	float = { source = "always", border = "rounded" },
+-- 	virtual_text = false,
+-- 	signs = true,
+-- })
+-- vim.cmd([[ autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 
 -- DIAGNOSTICS ICONS
 vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })

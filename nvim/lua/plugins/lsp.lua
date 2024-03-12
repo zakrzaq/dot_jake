@@ -18,6 +18,8 @@ local on_attach = function(_, bufnr)
 	nmap("K", vim.lsp.buf.hover, "Hover Documentation")
 	nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 	nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+	nmap("sD", vim.lsp.buf.hover, "[s]oto [D]iagnostic hover")
+
 	nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
 	nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
 	nmap("<leader>wl", function()
@@ -40,9 +42,12 @@ local on_attach = function(_, bufnr)
 		end
 
 		if contains(eslint_list, vim.bo.filetype) then
-			vim.cmd("EslintFixAll")
+			require("conform").format()
+			-- vim.lsp.buf.format()
+			-- vim.cmd("EslintFixAll")
 		else
-			vim.lsp.buf.format()
+			require("conform").format()
+			-- vim.lsp.buf.format()
 		end
 	end, { desc = "Format current buffer with LSP" })
 end

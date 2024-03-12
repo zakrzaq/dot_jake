@@ -112,7 +112,7 @@ source $ZSH/oh-my-zsh.sh
 
 # SETUP
 
-  # Enable brew for second user on mac
+# Enable brew for second user on mac
 if uname -a | grep -q 'Darwin'; then
   export PATH=$PATH:/opt/homebrew/bin
 fi
@@ -237,7 +237,7 @@ alias dus='fn() { du -h --max-depth=1 $1 | sort -hr }; fn'
 alias dfh="df -h | grep home | awk '{print \$4}'"
 alias rmv-dirs='fn() { find . -name $1 -type d -prune -exec rm -rf '{}' + }; fn'
 alias cheat='fn() { curl cheat.sh/$1 }; fn'
-alias vt="vtop -t brew"
+alias vt="vtop -t nord"
 alias tt="taskwarrior-tui"
 
 # NVM CONFIG
@@ -265,6 +265,8 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+# STARTSHIP
+eval "$(starship init zsh)"
 
 # ADITIONAL ALIASES
 source ~/aliases.zsh
