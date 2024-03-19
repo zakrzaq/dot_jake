@@ -39,7 +39,7 @@ disabled = false
 [python]
 symbol = ' '
 disabled = false
-format = '[$symbol($version )]($style)'
+format = '[${symbol} ${pyenv_prefix}(${version})(\($virtualenv\))]($style)'
 
 [nodejs]
 disabled = false
