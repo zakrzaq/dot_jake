@@ -195,12 +195,12 @@ bindsym $mod+r mode "resize"
 for_window [class="^.*"] border pixel 0
 
 # background
-exec_always feh --bg-scale ~/Pictures/Wallpapers/spacex-launch.jpg
-bindsym $mod+shift+x exec i3lock --image ~/Pictures/Wallpapers/spacex-launch.jpg
+exec_always feh --bg-scale ~/Pictures/wallpapers/backgroud.jpg
+bindsym $mod+shift+x exec i3lock --image ~/Pictures/wallpapers/background.jpg
 
 # font
 # font pango:System San Francisco Display 9
-font pango:FiraCode Nerd Font 10
+font pango:FiraCode Nerd Font Light 10
 
 # sticky
 bindsym $mod+Shift+w sticky toggle 
