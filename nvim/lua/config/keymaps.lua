@@ -14,12 +14,12 @@ vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
 vim.keymap.set({ "n", "x" }, "x", '"_x')
 
--- copy/paste
+-- COPY/PASTE --
 vim.keymap.set({ "n", "v" }, "<C-a>", "ggVG", { desc = "Select [A]ll" })
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "[Y]ank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "[P]aste from system clipboard" })
 
--- general
+-- GENERAL --
 vim.keymap.set("n", "<C-q>", "<cmd>qa!<CR>", { desc = "[Q]uit nvim" })
 vim.keymap.set("n", "<space>w", "<cmd>write<cr>", { desc = "[W]write changes" })
 vim.keymap.set("n", "<C-s>", "<cmd>Format<cr> <cmd>write<cr>", { desc = "[W]write changes" })
@@ -34,16 +34,16 @@ vim.keymap.set("n", "<M-l>", "<C-w>l")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- Close buffer
+-- Close buffer --
 vim.keymap.set("n", "<leader>q", "<cmd>Bdelete<CR>", { desc = "[Q]uit current buffer" })
 
--- NeoGit
+-- NeoGit --
 vim.keymap.set("n", "<leader>gn", "<cmd>:Neogit<CR>", { desc = "[N]eo[G]it" })
 
--- CUSTOM
+-- CUSTOM --
 vim.keymap.set("n", "<C-f>", "<cmd>:silent !tmux neww tmux-sessionizer<CR>", { desc = "Create Tmux Session" })
 
--- TELESCOPE
+-- TELESCOPE --
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers, { desc = "[F]ind existing [b]uffers" })
 vim.keymap.set("n", "<leader>/", function()
@@ -66,13 +66,22 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch buffer [D]iagnostics" })
 vim.keymap.set("n", "<leader>st", "<cmd>:TodoTelescope<CR>", { desc = "[S]earch [T]odos" })
-vim.keymap.set("n", "<leader>ss", "<cmd>:Telescope lsp_document_symbols<CR>", { desc = "[S]earch document [S]ymbol" })
+vim.keymap.set("n", "<leader>ss", "<cmd>:Telescope lsp_document_symbols<CR>", { desc = "[S]earch document [s]ymbol" })
 vim.keymap.set(
 	"n",
 	"<leader>sS",
 	require("telescope.builtin").lsp_dynamic_workspace_symbols,
-	{ desc = "[S]earch document [S]ymbol" }
+	{ desc = "[S]earch workspace [S]ymbol" }
 )
+vim.keymap.set("n", "<leader>sc", function()
+	require("telescope.builtin").lsp_document_symbols({ symbols = { "class" } })
+end, { desc = "[S]earch document [c]lasses" })
+vim.keymap.set("n", "<leader>sf", function()
+	require("telescope.builtin").lsp_document_symbols({ symbols = { "function" } })
+end, { desc = "[S]earch document [f]functions" })
+vim.keymap.set("n", "<leader>sm", function()
+	require("telescope.builtin").lsp_document_symbols({ symbols = { "method" } })
+end, { desc = "[S]earch document [m]ethods" })
 vim.keymap.set("n", "<leader>gs", "<cmd>:Telescope git_status<CR>", { desc = "[G]it [S]atus" })
 vim.keymap.set("n", "<leader>gc", "<cmd>:Telescope git_commits<CR>", { desc = "[G]it [C]ommits" })
 vim.keymap.set("n", "<leader>gb", "<cmd>:Telescope git_branches<CR>", { desc = "[G]it [B]ranches" })
@@ -80,10 +89,10 @@ vim.keymap.set("n", "<leader>gt", "<cmd>:Telescope git_stash<CR>", { desc = "[G]
 vim.keymap.set("n", "<leader>gl", "<cmd>:ToggleBlameLine<cr>", { silent = true, desc = "[G]it b[L]ame line" })
 vim.keymap.set("n", "<leader>gL", "<cmd>:Gitsigns blame_line<CR>", { desc = "[G]it b[L]ame popup" })
 
--- NEOTREE
+-- NEOTREE --
 vim.keymap.set({ "n", "v" }, "<leader>t", ":Neotree toggle<CR>", { silent = true, desc = "Neo[T]ree Toggle" })
 
--- URL-OPEN
+-- URL-OPEN --
 vim.keymap.set(
 	"n",
 	"<leader>uo",
@@ -98,7 +107,7 @@ vim.keymap.set(
 	{ silent = true, desc = "[u]RL clear highlight all" }
 )
 
--- TROUBLE
+-- TROUBLE --
 vim.keymap.set("n", "<leader>xx", function()
 	require("trouble").toggle()
 end, { desc = "toggle diagnosti[X]" })
@@ -118,7 +127,7 @@ vim.keymap.set("n", "gR", function()
 	require("trouble").toggle("lsp_references")
 end)
 
--- POMODORO
+-- POMODORO --
 vim.keymap.set("n", "<leader>pss", "<cmd>:TimerStart 25m<cr>", { desc = "Start [P]omodoro 25m", silent = true })
 vim.keymap.set("n", "<leader>psl", "<cmd>:TimerStart55m<cr>", { desc = "Start [P]omodoro 55m", silent = true })
 vim.keymap.set("n", "<leader>pb5", "<cmd>:TimerStart 5m<cr>", { desc = "Start [P]omodoro break 5m", silent = true })
@@ -129,14 +138,58 @@ vim.keymap.set("n", "<leader>pr", "<cmd>:TimerResume<cr>", { desc = "Resume [P]o
 vim.keymap.set("n", "<leader>pns", "<cmd>:TimerShow<cr>", { desc = "[P]omodoro [n]otification [s]how", silent = true })
 vim.keymap.set("n", "<leader>pnh", "<cmd>:TimerHide<cr>", { desc = "[P]omodoro [n]otification [h]ide", silent = true })
 
--- OBSIDIAN
-vim.keymap.set({"n", "v"}, "<leader>oo", "<cmd>:ObsidianQuickSwitch<cr>", { desc = "[O]bsidian [o]pen", silent = true })
-vim.keymap.set({"n", "v"}, "<leader>os", "<cmd>:ObsidianSearch<cr>", { desc = "[O]bsidian [s]earch", silent = true })
-vim.keymap.set({"n", "v"}, "<leader>on", "<cmd>:ObsidianNew<cr>", { desc = "[O]bsidian [n]new note", silent = true })
-vim.keymap.set({"n", "v"}, "<leader>or", "<cmd>:ObsidianRename<cr>", { desc = "[O]bsidian [r]ename note", silent = true })
-vim.keymap.set({"n", "v"}, "<leader>ot", "<cmd>:ObsidianToday<cr>", { desc = "[O]bsidian [t]odayn", silent = true })
-vim.keymap.set({"n", "v"}, "<leader>oy", "<cmd>:ObsidianYesterday<cr>", { desc = "[O]bsidian [y]esterday", silent = true })
-vim.keymap.set({"n", "v"}, "<leader>om", "<cmd>:ObsidianTomorrow<cr>", { desc = "[O]bsidian to[m]orrow", silent = true })
-vim.keymap.set({"n", "v"}, "<leader>ol", "<cmd>:ObsidianTemplate<cr>", { desc = "[O]bsidian temp[l]ete", silent = true })
-vim.keymap.set({"n", "v"}, "<leader>oe", "<cmd>:ObsidianExtractNote <cr>", { desc = "[O]bsidian [e]extract to new note", silent = true })
-vim.keymap.set({"n", "v"}, "<leader>ow", "<cmd>:ObsidianWorkspace <cr>", { desc = "[O]bsidian [e]extract to new note", silent = true })
+-- OBSIDIAN --
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>oo",
+	"<cmd>:ObsidianQuickSwitch<cr>",
+	{ desc = "[O]bsidian [o]pen", silent = true }
+)
+vim.keymap.set({ "n", "v" }, "<leader>os", "<cmd>:ObsidianSearch<cr>", { desc = "[O]bsidian [s]earch", silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>on", "<cmd>:ObsidianNew<cr>", { desc = "[O]bsidian [n]new note", silent = true })
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>or",
+	"<cmd>:ObsidianRename<cr>",
+	{ desc = "[O]bsidian [r]ename note", silent = true }
+)
+vim.keymap.set({ "n", "v" }, "<leader>ot", "<cmd>:ObsidianToday<cr>", { desc = "[O]bsidian [t]odayn", silent = true })
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>oy",
+	"<cmd>:ObsidianYesterday<cr>",
+	{ desc = "[O]bsidian [y]esterday", silent = true }
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>om",
+	"<cmd>:ObsidianTomorrow<cr>",
+	{ desc = "[O]bsidian to[m]orrow", silent = true }
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>ol",
+	"<cmd>:ObsidianTemplate<cr>",
+	{ desc = "[O]bsidian temp[l]ete", silent = true }
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>oe",
+	"<cmd>:ObsidianExtractNote <cr>",
+	{ desc = "[O]bsidian [e]extract to new note", silent = true }
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>ow",
+	"<cmd>:ObsidianWorkspace <cr>",
+	{ desc = "[O]bsidian [e]extract to new note", silent = true }
+)
+
+-- OTHER --
+vim.keymap.set({ "n", "v" }, "<leader>cp", "<cmd>:echo expand('%:p') <cr>", { desc = "[C]ode [P]ath", silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>fd", function()
+	require("telescope.builtin").find_files({ search_dirs = { "~/dot_jake" } })
+end, { desc = "[F]ind [D]otfiles" })
+vim.keymap.set({ "n", "v" }, "<leader>fc", function()
+	require("telescope.builtin").find_files({ search_dirs = { "~/cht" } })
+end, { desc = "[F]ind [C]heats" })

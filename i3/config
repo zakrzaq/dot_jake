@@ -109,13 +109,13 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1.  Terminal"
-# set $ws2 "2.  Firefox"
-set $ws2 "2.  Work"
-set $ws3 "3.  Personal"
-set $ws4 "4.  Todo"
-set $ws5 "5.  Chat"
-set $ws6 "6.  Email"
+set $ws1 "1.  Code"
+set $ws2 "2.  Web"
+set $ws3 "3.  Tools"
+set $ws4 "4.  Org"
+set $ws5 "5.  Comms"
+set $ws6 "6"
+# set $ws6 "6.  Email"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -195,12 +195,12 @@ bindsym $mod+r mode "resize"
 for_window [class="^.*"] border pixel 0
 
 # background
-exec_always feh --bg-scale ~/Pictures/Wallpapers/spacex-launch.jpg
-bindsym $mod+shift+x exec i3lock --image ~/Pictures/Wallpapers/spacex-launch.jpg
+exec_always feh --bg-scale ~/Pictures/wallpapers/backgroud.jpg
+bindsym $mod+shift+x exec i3lock --image ~/Pictures/wallpapers/background.jpg
 
 # font
 # font pango:System San Francisco Display 9
-font pango:FiraCode Nerd Font 10
+font pango:FiraCode Nerd Font Light 10
 
 # sticky
 bindsym $mod+Shift+w sticky toggle 
