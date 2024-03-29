@@ -249,11 +249,10 @@ bindsym $mod+Ctrl+less move workspace to output left
 exec --no-startup-id i3-msg 'workspace $ws1; exec kitty tmux'
 exec --no-startup-id i3-msg 'workspace $ws1; exec barrier'
 exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
-exec --no-startup-id i3-msg 'workspace $ws3; exec postman'
-exec --no-startup-id i3-msg 'workspace $ws3; exec codium'
 exec --no-startup-id i3-msg 'workspace $ws10; exec nautilus'
 exec --no-startup-id i3-msg 'workspace $ws10; exec pavucontrol'
-
+exec --no-startup-id i3-msg 'workspace $ws3; exec postman'
+exec --no-startup-id i3-msg 'workspace $ws3; exec codium'
 
 # EXEC 
 
