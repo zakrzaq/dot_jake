@@ -244,22 +244,14 @@ bar {
 bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
 
-# ENVY
-exec xinput set-prop 12 "libinput Natural Scrolling Enabled" 1
-exec xinput set-prop 12 "libinput Tapping Enabled" 1
-
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-
 # STARTUP
 # Start i3status to display information about the current workspace
-# exec --no-startup-id i3-msg 'workspace $ws1; exec ./Applications/WezTerm-20230712-072601-f4abf8fd-Ubuntu20.04.AppImage'
-# exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
-# exec --no-startup-id i3-msg 'workspace $ws3; exec google-chrome'
-# exec --no-startup-id i3-msg 'workspace $ws5; exec geary'
-# exec --no-startup-id i3-msg 'workspace $ws6; exec joplin; exec ./Applications/Todoist-linux-x86_64-8.8.0.AppImage;'
-# exec --no-startup-id i3-msg 'workspace $ws4; exec google-chrome --app-id=hnpfjngllnobngcgfapefoaidbinmjnm;'
-# exec --no-startup-id i3-msg 'workspace $ws4; exec google-chrome --app-id=cifhbcnohmdccbgoicgdjpfamggdegmo;'
+exec --no-startup-id i3-msg 'workspace $ws1; exec kitty tmux'
+exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
+exec --no-startup-id i3-msg 'workspace $ws3; exec postman'
+exec --no-startup-id i3-msg 'workspace $ws3; exec codium'
+exec --no-startup-id i3-msg 'workspace $ws10; exec nautilus'
+exec --no-startup-id i3-msg 'workspace $ws10; exec pavucontrol'
 
 
 # EXEC 
@@ -272,6 +264,8 @@ exec xrandr --output DisplayPort-1 --set TearFree on
 exec xrandr --output DisplayPort-2 --set TearFree on
 exec xrandr --output DisplayPort-3 --set TearFree on
 exec xrandr --output DP-1 --set TearFree on
+exec xrandr --output HDMI-A-0 --set TearFree on
+exec xrandr --output HDMI-A-1 --set TearFree on
 
 # screen managment
 
