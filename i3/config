@@ -247,6 +247,7 @@ bindsym $mod+Ctrl+less move workspace to output left
 # STARTUP
 # Start i3status to display information about the current workspace
 exec --no-startup-id i3-msg 'workspace $ws1; exec kitty tmux'
+exec --no-startup-id i3-msg 'workspace $ws1; exec barrier'
 exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
 exec --no-startup-id i3-msg 'workspace $ws3; exec postman'
 exec --no-startup-id i3-msg 'workspace $ws3; exec codium'
@@ -277,6 +278,10 @@ bindsym Control+Shift+9 exec ~/.screenlayout/ober-both.sh
 # mouse and keyboard script
 
 bindsym Control+Shift+k exec ~/.local/bin/con-peripherials.sh
+
+# screenshot tool / flameshot
+
+bindsym Control+Shift+p exec flameshot launcher
 
 # ubuntu policies
 
