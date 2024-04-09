@@ -5,6 +5,7 @@ require("conform").setup({
 		javascript = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
 		typescriptreact = { { "prettierd", "prettier" } },
+		markdown = { { "prettierd", "prettier" } },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
