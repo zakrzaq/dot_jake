@@ -248,7 +248,7 @@ bindsym $mod+Ctrl+less move workspace to output left
 
 # Start i3status to display information about the current workspace
 exec --no-startup-id i3-msg 'workspace $ws1; exec kitty tmux'
-exec --no-startup-id i3-msg 'workspace $ws3; exec google-chrome'
+exec --no-startup-id i3-msg 'workspace $ws3; exec firefox'
 
 # EXEC 
 exec_always picom -f
@@ -259,6 +259,8 @@ exec xrandr --output DisplayPort-1 --set TearFree on
 exec xrandr --output DisplayPort-2 --set TearFree on
 exec xrandr --output DisplayPort-3 --set TearFree on
 exec xrandr --output DP-1 --set TearFree on
+exec xrandr --output HDMI-A-0 --set TearFree on
+exec xrandr --output HDMI-A-1 --set TearFree on
 
 # screen managment
 bindsym Control+Shift+0 exec ~/.screenlayout/desk-none.sh
