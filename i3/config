@@ -271,3 +271,8 @@ bindsym Control+Shift+k exec ~/.local/bin/con-peripherials.sh
 
 # ubuntu policies
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
+# brightness
+
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
