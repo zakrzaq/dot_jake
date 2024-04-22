@@ -155,6 +155,7 @@ alias x='exit'
 alias mkd='fn() { mkdir "$1" && cd "$1"; }; fn'
 alias we='watch echo'
 alias src='fn() { source ./"$1"/bin/activate }; fn'
+alias ls-cmd='fc -l -n 1 | fzf | xargs -r -I {} /bin/zsh -c "{}"'
 
 # GIT:
 alias gint='git init && git branch -m main'
