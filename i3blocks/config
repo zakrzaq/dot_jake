@@ -45,36 +45,36 @@ command=/usr/share/i3blocks/volume 5 pulse
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-# [memory]
-# color=#73daca
-# label= 
-# separator=false
-# interval=30
+[memory]
+color=#73daca
+label= 
+separator=false
+interval=30
 #
-# [memory]
-# label=
-# instance=swap
-# separator=false
-# interval=30
+[memory]
+label=
+instance=swap
+separator=false
+interval=30
 
 # Disk usage
 #
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-# [disk]
-# label=
-# instance=/home
-# interval=30
+[disk]
+label=
+instance=/home
+interval=30
 
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-# [iface]
-# #instance=wlan0
-# color=#73daca
-# interval=10
+[iface]
+#instance=wlan0
+color=#73daca
+interval=10
 # separator=false
 
 # [wifi]
@@ -82,9 +82,9 @@ command=/usr/share/i3blocks/volume 5 pulse
 # interval=10
 # separator=false
 
-# [bandwidth]
-# #instance=eth0
-# interval=5
+[bandwidth]
+#instance=eth0
+interval=5
 
 # CPU TEMP
 [cpu_temp]
