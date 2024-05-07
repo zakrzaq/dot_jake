@@ -12,29 +12,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- GIT
-	{ "NeogitOrg/neogit", dependencies = "nvim-lua/plenary.nvim", config = true },
-	"tveskag/nvim-blame-line",
-
 	-- TAB SHIFT WIDTH
 	"tpope/vim-sleuth",
 
 	-- THEME
 	{ "nordtheme/vim" },
-	{ "rebelot/kanagawa.nvim" },
-	{ "catppuccin/nvim" },
-	{ "oxfist/night-owl.nvim" },
-	{ "folke/tokyonight.nvim" },
-	{ "morhetz/gruvbox" },
-	{ "sainnhe/everforest" },
-	{ "EdenEast/nightfox.nvim" },
 	{
-		"rose-pine/neovim",
+		"rebelot/kanagawa.nvim",
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("rose-pine")
+			vim.cmd.colorscheme("kanagawa-wave")
 		end,
 	},
+	{ "catppuccin/nvim" },
+	{ "folke/tokyonight.nvim" },
+	{ "EdenEast/nightfox.nvim" },
+	{ "rose-pine/neovim" },
 	{ "projekt0n/caret.nvim" },
 
 	-- UI
@@ -214,17 +207,6 @@ require("lazy").setup({
 		opts = {},
 	},
 
-	-- GPT
-	-- {
-	-- 	"jackMort/ChatGPT.nvim",
-	-- 	event = "VeryLazy",
-	-- 	dependencies = {
-	-- 		"MunifTanjim/nui.nvim",
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"nvim-telescope/telescope.nvim",
-	-- 	},
-	-- },
-
 	-- CODEIUM
 	{
 		"jcdickinson/codeium.nvim",
@@ -237,9 +219,6 @@ require("lazy").setup({
 			require("codeium").setup({})
 		end,
 	},
-
-	-- COPILOT
-	-- { "github/copilot.vim" },
 
 	-- OBSIDIAN
 	{
@@ -288,5 +267,17 @@ require("lazy").setup({
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {},
+	},
+
+	-- DASHBOARD
+	{
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		config = function()
+			require("dashboard").setup({
+				-- config
+			})
+		end,
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
 }, {})
