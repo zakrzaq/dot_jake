@@ -276,3 +276,10 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+##########
+#  JAKE  #
+##########
+
+# tosh natural scrolling
+exec --no-startup-id xiput set-prop 12 320 1
