@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
-session=$(find ~/dev ~/mrs-dev ~/jake-dev -mindepth 1 -maxdepth 2 -type d | fzf)
+session=$(find ~/development -mindepth 1 -maxdepth 2 -type d | fzf)
+# session=$(find ~/development/aramika ~/development/monterail ~/development/montrose ~/development/projects ~/development/learning ~/development/ra-int ~/development/recruitment-tasks ~/development/judy ~/development/jukegroup ~/development/jukesites ~/development/poc -mindepth 1 -maxdepth 2 -type d | fzf)
 session_name=$(basename "$session" | tr . _)
 
 echo $session_name

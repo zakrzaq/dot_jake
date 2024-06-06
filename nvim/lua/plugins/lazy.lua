@@ -21,20 +21,20 @@ require("lazy").setup({
 
 	-- THEME
 	{ "nordtheme/vim" },
-	{ "rebelot/kanagawa.nvim" },
-	{ "catppuccin/nvim" },
+	{
+		"rebelot/kanagawa.nvim",
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("kanagawa-wave")
+		end,
+	},
+	{ "catppuccin/nvim"	},
 	{ "oxfist/night-owl.nvim" },
 	{ "folke/tokyonight.nvim" },
 	{ "morhetz/gruvbox" },
 	{ "sainnhe/everforest" },
 	{ "EdenEast/nightfox.nvim" },
-	{
-		"rose-pine/neovim",
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("rose-pine")
-		end,
-	},
+	{ "rose-pine/neovim" },
 	{ "projekt0n/caret.nvim" },
 
 	-- UI
@@ -42,7 +42,7 @@ require("lazy").setup({
 	{ "moll/vim-bbye" },
 	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
 	{ "windwp/nvim-ts-autotag", opts = {} },
-	{ "brenoprata10/nvim-highlight-colors", opts = { enable_tailwind = true } },
+	-- { "brenoprata10/nvim-highlight--pinecolors", opts = { enable_tailwind = true } },
 	{
 		"akinsho/toggleterm.nvim",
 		opts = {
@@ -57,7 +57,7 @@ require("lazy").setup({
 		opts = {
 			options = {
 				icons_enabled = false,
-				theme = "rose-pine",
+				theme = "catppuccin",
 				component_separators = "|",
 				section_separators = "",
 			},
