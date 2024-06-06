@@ -281,3 +281,7 @@ bindsym Control+Shift+k exec ~/.local/bin/con-peripherials.sh
 # ubuntu policies
 
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
+# sreenshot
+
+bindsym $mod+p exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
