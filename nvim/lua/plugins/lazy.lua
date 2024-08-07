@@ -14,36 +14,45 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- GIT
 	{ "NeogitOrg/neogit", dependencies = "nvim-lua/plenary.nvim", config = true },
-	"tveskag/nvim-blame-line",
 
 	-- TAB SHIFT WIDTH
 	"tpope/vim-sleuth",
 
 	-- THEME
-	{ "nordtheme/vim" },
 	{
-		"rebelot/kanagawa.nvim",
+		"rose-pine/neovim",
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("kanagawa-wave")
+			vim.cmd.colorscheme("rose-pine")
 		end,
 	},
-	{ "catppuccin/nvim"	},
-	{ "oxfist/night-owl.nvim" },
-	{ "folke/tokyonight.nvim" },
-	{ "morhetz/gruvbox" },
-	{ "sainnhe/everforest" },
-	{ "EdenEast/nightfox.nvim" },
-	{ "rose-pine/neovim" },
-	{ "projekt0n/caret.nvim" },
 
 	-- UI
 	{ "akinsho/bufferline.nvim", opts = {} },
 	{ "moll/vim-bbye" },
 	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
-	{ "windwp/nvim-ts-autotag", opts = {} },
-	-- { "brenoprata10/nvim-highlight--pinecolors", opts = { enable_tailwind = true } },
 	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup({
+				opts = {
+					enable_close = true, -- Auto close tags
+					enable_rename = true, -- Auto rename pairs of tags
+					enable_close_on_slash = true, -- Auto close on trailing </
+				},
+				-- Also override individual filetype configs, these take priority.
+				-- Empty by default, useful if one of the "opts" global settings
+				-- doesn't work well in a specific filetype
+				per_filetype = {
+					["html"] = {
+						enable_close = true,
+					},
+				},
+			})
+		end,
+		opts = {},
+	},
+	{ -- TOGGLE TERM
 		"akinsho/toggleterm.nvim",
 		opts = {
 			open_mapping = "<C-b>",
@@ -51,13 +60,18 @@ require("lazy").setup({
 			shade_terminals = true,
 		},
 	},
-	{ "folke/which-key.nvim", opts = {} },
-	{
+
+	{ -- WHICH KEY
+		"folke/which-key.nvim",
+		opts = {},
+	},
+
+	{ -- LUALINE
 		"nvim-lualine/lualine.nvim",
 		opts = {
 			options = {
 				icons_enabled = false,
-				theme = "catppuccin",
+				theme = "rose-pine",
 				component_separators = "|",
 				section_separators = "",
 			},
@@ -83,7 +97,8 @@ require("lazy").setup({
 			},
 		},
 	},
-	{
+
+	{ -- MINI INDENT
 		"echasnovski/mini.indentscope",
 		version = false, -- wait till new 0.7.0 release to put it back on semver
 		event = { "BufReadPre", "BufNewFile" },
@@ -112,9 +127,18 @@ require("lazy").setup({
 			})
 		end,
 	},
-	{ "numToStr/Comment.nvim", opts = {} },
-	{ "folke/todo-comments.nvim", opts = {} },
-	{
+
+	{ -- COMMENTS
+		"numToStr/Comment.nvim",
+		opts = {},
+	},
+
+	{ -- TODO COMMENTS
+		"folke/todo-comments.nvim",
+		opts = {},
+	},
+
+	{ -- OPEN URL
 		"sontungexpt/url-open",
 		event = "VeryLazy",
 		cmd = "URLOpenUnderCursor",
@@ -126,7 +150,8 @@ require("lazy").setup({
 			url_open.setup({})
 		end,
 	},
-	{
+
+	{ -- VIM SURROUND
 		"kylechui/nvim-surround",
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
 		event = "VeryLazy",
@@ -134,8 +159,8 @@ require("lazy").setup({
 			require("nvim-surround").setup({})
 		end,
 	},
-	-- TELESCOPE
-	{
+
+	{ -- TELESCOPE
 		"nvim-telescope/telescope.nvim",
 		version = "*",
 		dependencies = {
@@ -152,8 +177,7 @@ require("lazy").setup({
 		end,
 	},
 
-	-- TREESITTER
-	{
+	{ -- TREESITTER
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
@@ -163,8 +187,7 @@ require("lazy").setup({
 		end,
 	},
 
-	-- NEOTREE
-	{
+	{ -- NEOTREE
 		"nvim-neo-tree/neo-tree.nvim",
 		version = "*",
 		dependencies = {
@@ -177,8 +200,7 @@ require("lazy").setup({
 		end,
 	},
 
-	-- GIT SIGNS
-	{
+	{ -- GIT SIGNS
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			signs = {
@@ -191,14 +213,12 @@ require("lazy").setup({
 		},
 	},
 
-	-- AUTOCOMPLETE
-	{
+	{ -- AUTOCOMPLETE
 		"hrsh7th/nvim-cmp",
 		dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
 	},
 
-	-- LSP
-	{
+	{ -- LSP
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -208,25 +228,12 @@ require("lazy").setup({
 		},
 	},
 
-	-- FORMATTING
-	{
+	{ -- FORMATTING
 		"stevearc/conform.nvim",
 		opts = {},
 	},
 
-	-- GPT
-	-- {
-	-- 	"jackMort/ChatGPT.nvim",
-	-- 	event = "VeryLazy",
-	-- 	dependencies = {
-	-- 		"MunifTanjim/nui.nvim",
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"nvim-telescope/telescope.nvim",
-	-- 	},
-	-- },
-
-	-- CODEIUM
-	{
+	{ -- CODEIUM
 		"jcdickinson/codeium.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -238,11 +245,7 @@ require("lazy").setup({
 		end,
 	},
 
-	-- COPILOT
-	-- { "github/copilot.vim" },
-
-	-- OBSIDIAN
-	{
+	{ -- OBSIDIAN
 		"epwalsh/obsidian.nvim",
 		version = "*", -- recommended, use latest release instead of latest commit
 		lazy = true,
@@ -271,8 +274,7 @@ require("lazy").setup({
 		},
 	},
 
-	-- POMODORO
-	{
+	{ -- POMODORO
 		"epwalsh/pomo.nvim",
 		version = "*", -- Recommended, use latest release instead of latest commit
 		lazy = true,
@@ -283,10 +285,53 @@ require("lazy").setup({
 		opts = {},
 	},
 
-	-- TROUBLE
-	{
+	{ -- TROUBLE
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {},
+	},
+
+	-- { -- AUTO DARK MODE
+	-- 	"f-person/auto-dark-mode.nvim",
+	-- 	config = {
+	-- 		update_interval = 1000,
+	-- 		set_dark_mode = function()
+	-- 			vim.cmd.colorscheme("rose-pine")
+	-- 		end,
+	-- 		set_light_mode = function()
+	-- 			vim.cmd.colorscheme("rose-pine-dawn")
+	-- 		end,
+	-- 	},
+	-- },
+
+	{ -- AUTO SESSION
+		"rmagatti/auto-session",
+		lazy = false,
+		dependencies = {
+			"nvim-telescope/telescope.nvim", -- Only needed if you want to use sesssion lens
+		},
+		config = function()
+			require("auto-session").setup({
+				auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+			})
+		end,
+	},
+
+	{ -- DADBOD UI / DBMS
+		"kristijanhusak/vim-dadbod-ui",
+		dependencies = {
+			{ "tpope/vim-dadbod", lazy = true },
+			{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true }, -- Optional
+		},
+		cmd = {
+			"DBUI",
+			"DBUIToggle",
+			"DBUIAddConnection",
+			"DBUIFindBuffer",
+		},
+		init = function()
+			-- Your DBUI configuration
+			vim.g.db_ui_use_nerd_fonts = 1
+		end,
 	},
 }, {})

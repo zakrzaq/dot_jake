@@ -28,25 +28,7 @@ local on_attach = function(_, bufnr)
 	nmap("]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 
 	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-		local eslint_list = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
-
-		local function contains(list, x)
-			for _, v in pairs(list) do
-				if v == x then
-					return true
-				end
-			end
-			return false
-		end
-
-		if contains(eslint_list, vim.bo.filetype) then
-			require("conform").format()
-			-- vim.lsp.buf.format()
-			-- vim.cmd("EslintFixAll")
-		else
-			require("conform").format()
-			-- vim.lsp.buf.format()
-		end
+		require("conform").format()
 	end, { desc = "Format current buffer with LSP" })
 end
 
@@ -65,25 +47,12 @@ local servers = {
 		},
 	},
 	ruff_lsp = {},
-	eslint = {
-		enable = true,
-		format = { enable = true }, -- this will enable formatting
-		packageManager = "npm",
-		autoFixOnSave = true,
-		codeActionsOnSave = {
-			mode = "all",
-			rules = { "!debugger", "!no-only-tests/*" },
-		},
-		lintTask = {
-			enable = true,
-		},
-	},
 	html = {},
 	cssls = {},
 	tailwindcss = {},
 	emmet_ls = {},
 	sqlls = {},
-	-- marksman = {},
+	marksman = {},
 	dotls = {},
 	bashls = {},
 	jsonls = {},
@@ -94,7 +63,6 @@ local servers = {
 			diagnostics = { globals = { "vim" } },
 		},
 	},
-	intelephense = {},
 }
 
 require("neodev").setup()

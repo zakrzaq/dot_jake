@@ -12,7 +12,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
-vim.keymap.set({ "n", "x" }, "x", '"_x')
+-- vim.keymap.({ "n", "x" }, "x", '"_x')
 
 -- COPY/PASTE --
 vim.keymap.set({ "n", "v" }, "<C-a>", "ggVG", { desc = "Select [A]ll" })
@@ -64,7 +64,18 @@ vim.keymap.set(
 	require("telescope.builtin").current_buffer_fuzzy_find,
 	{ desc = "[S]earch in [b]uffer" }
 )
-vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch buffer [D]iagnostics" })
+vim.keymap.set(
+	"n",
+	"<leader>sd",
+	require("telescope.builtin").diagnostics({ severity = "Error" }),
+	{ desc = "[S]earch buffer [D]iagnostics - ERR" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>sD",
+	require("telescope.builtin").diagnostics,
+	{ desc = "[S]earch buffer [D]iagnostics - all" }
+)
 vim.keymap.set("n", "<leader>st", "<cmd>:TodoTelescope<CR>", { desc = "[S]earch [T]odos" })
 vim.keymap.set("n", "<leader>ss", "<cmd>:Telescope lsp_document_symbols<CR>", { desc = "[S]earch document [s]ymbol" })
 vim.keymap.set(
@@ -89,7 +100,12 @@ vim.keymap.set("n", "<leader>gs", "<cmd>:Telescope git_status<CR>", { desc = "[G
 vim.keymap.set("n", "<leader>gc", "<cmd>:Telescope git_commits<CR>", { desc = "[G]it [C]ommits" })
 vim.keymap.set("n", "<leader>gb", "<cmd>:Telescope git_branches<CR>", { desc = "[G]it [B]ranches" })
 vim.keymap.set("n", "<leader>gt", "<cmd>:Telescope git_stash<CR>", { desc = "[G]it s[T]ash" })
-vim.keymap.set("n", "<leader>gl", "<cmd>:ToggleBlameLine<cr>", { silent = true, desc = "[G]it b[L]ame line" })
+vim.keymap.set(
+	"n",
+	"<leader>gl",
+	"<cmd>:Gitsigns toggle_current_line_blame<cr>",
+	{ silent = true, desc = "[G]it b[L]ame line" }
+)
 vim.keymap.set("n", "<leader>gL", "<cmd>:Gitsigns blame_line<CR>", { desc = "[G]it b[L]ame popup" })
 
 -- NEOTREE --
@@ -188,11 +204,46 @@ vim.keymap.set(
 	{ desc = "[O]bsidian [e]extract to new note", silent = true }
 )
 
+-- DADBOD --
+vim.keymap.set({ "n", "v" }, "<leader>du>", "<cmd>:DBUI<cr>", { desc = "[D]adbod [U]I", silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>dt>", "<cmd>:DBUIToggle<cr>", { desc = "[D]adbod [T]ogge", silent = true })
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>da>",
+	"<cmd>:DBUIAddConnection<cr>",
+	{ desc = "[D]adbod [A]dd connection", silent = true }
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>df>",
+	"<cmd>:DBUIFindBuffer<cr>",
+	{ desc = "[D]adbod [F]ind buffer", silent = true }
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>ds",
+	":lua vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Plug>(DBUI_SaveQuery)', true, true, true), 'n', false)",
+	{ desc = "[D]adbod [S]ave query", silent = true }
+)
+-- THEMES --
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>lrd",
+	"<cmd>:colorscheme rose-pine<cr>",
+	{ desc = "[L]ook [R]ose-Pine [D]ark", silent = true }
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>lrl",
+	"<cmd>:colorscheme rose-pine-dawn<cr>",
+	{ desc = "[L]ook [R]ose-Pine [L]ight", silent = true }
+)
+
 -- OTHER --
 vim.keymap.set({ "n", "v" }, "<leader>cp", "<cmd>:echo expand('%:p') <cr>", { desc = "[C]ode [P]ath", silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>fd", function()
 	require("telescope.builtin").find_files({ search_dirs = { "~/dot_jake" } })
-end, { desc = "[F]ind [D]otfiles" })
+end, { desc = "[F]ind in [D]otfiles" })
 vim.keymap.set({ "n", "v" }, "<leader>fc", function()
 	require("telescope.builtin").find_files({ search_dirs = { "~/cht" } })
 end, { desc = "[F]ind [C]heats" })
