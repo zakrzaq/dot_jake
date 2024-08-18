@@ -1,7 +1,7 @@
 #!/bin/bash
 
 create_symlink() {
-  eval ln -sf "$1" "$2"
+  ln -sf "$1" "$2"
 }
 
 menu() {
@@ -9,68 +9,68 @@ menu() {
   echo "Dot Jake Setup"
   echo "============"
   echo "0. Setup all for Linux"
-  echo "1. Synlink ZSH"
-  echo "2. Synlink GIT"
-  echo "3. Synlink TMUX"
-  echo "4. Synlink Kitty"
-  echo "5. Synlink Neovim"
-  echo "6. Synlink Redshift"
-  echo "7. Synlink Scripts"
-  echo "8. Synlink WezTerm - W10"
-  echo "9. Synlink Starship"
+  echo "1. Symlink ZSH"
+  echo "2. Symlink GIT"
+  echo "3. Symlink TMUX"
+  echo "4. Symlink Kitty"
+  echo "5. Symlink Neovim"
+  echo "6. Symlink Redshift"
+  echo "7. Symlink Scripts"
+  echo "8. Symlink WezTerm - W10"
+  echo "9. Symlink Starship"
   echo "X. Exit"
   echo "============"
   read -p "Enter your choice: " choice
   case $choice in
     0)
-      create_symlink "~/dot_jake/.zshrc" "~/"
-      create_symlink "~/dot_jake/aliases.zsh" "~/"
-      create_symlink "~/dot_jake/.gitconfig" "~/.gitconfig"
-      create_symlink "~/dot_jake/.tmux.conf" "~/.tmux.conf"
-      mv ~/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf.bak 
-      create_symlink "~/dot_jake/kitty.conf" "~/.config/kitty/"
-      create_symlink "~/dot_jake/nvim/*" "~/.config/nvim/"
-      create_symlink "~/dot_jake/redshift.conf" "~/.config/"
-      create_symlink "~/dot_jake/scripts/*" "~/.local/bin/"
-      create_symlink "~/dot_jake/.starship.toml" "~/.config/
+      create_symlink "$HOME/dot_jake/.zshrc" "$HOME/.zshrc"
+      create_symlink "$HOME/dot_jake/aliases.zsh" "$HOME/aliases.zsh"
+      create_symlink "$HOME/dot_jake/.gitconfig" "$HOME/.gitconfig"
+      create_symlink "$HOME/dot_jake/.tmux.conf" "$HOME/.tmux.conf"
+      mv "$HOME/.config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf.bak" 
+      create_symlink "$HOME/dot_jake/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+      create_symlink "$HOME/dot_jake/nvim" "$HOME/.config/nvim"
+      create_symlink "$HOME/dot_jake/redshift.conf" "$HOME/.config/redshift.conf"
+      create_symlink "$HOME/dot_jake/scripts" "$HOME/.local/bin"
+      create_symlink "$HOME/dot_jake/.starship.toml" "$HOME/.config/starship.toml"
       echo 'Full run completed'
       ;;
     1)
-      create_symlink "~/dot_jake/aliases.zsh" "~/"
-      create_symlink "~/dot_jake/.zshrc" "~/"
+      create_symlink "$HOME/dot_jake/aliases.zsh" "$HOME/aliases.zsh"
+      create_symlink "$HOME/dot_jake/.zshrc" "$HOME/.zshrc"
       echo ".zshrc symlinked"
       ;;
     2)
-      create_symlink "~/dot_jake/.gitconfig" "~/.gitconfig"
+      create_symlink "$HOME/dot_jake/.gitconfig" "$HOME/.gitconfig"
       echo ".gitconfig symlinked"
       ;;
     3)
-      create_symlink "~/dot_jake/.tmux.conf" "~/.tmux.conf"
+      create_symlink "$HOME/dot_jake/.tmux.conf" "$HOME/.tmux.conf"
       echo ".tmux.conf symlinked"
       ;;
     4)
-      mv ~/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf.bak 
-      create_symlink "~/dot_jake/kitty.conf" "~/.config/kitty/"
+      mv "$HOME/.config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf.bak"
+      create_symlink "$HOME/dot_jake/kitty.conf" "$HOME/.config/kitty/kitty.conf"
       echo "kitty.conf symlinked"
       ;;
     5)
-      create_symlink "~/dot_jake/nvim/*" "~/.config/nvim/"
+      create_symlink "$HOME/dot_jake/nvim" "$HOME/.config/nvim"
       echo "nvim symlinked"
       ;;
     6)
-      create_symlink "~/dot_jake/redshift.conf" "~/.config/"
+      create_symlink "$HOME/dot_jake/redshift.conf" "$HOME/.config/redshift.conf"
       echo "redshift.conf symlinked"
       ;;
     7)
-      create_symlink "~/dot_jake/scripts/*" "~/.local/bin/"
+      create_symlink "$HOME/dot_jake/scripts" "$HOME/.local/bin"
       echo ".local/bin symlinked"
       ;;
     8)
-      create_symlink "~/dot_jake/.wezterm.lua" "~/"
+      create_symlink "$HOME/dot_jake/.wezterm.lua" "$HOME/.wezterm.lua"
       echo ".wezterm.lua symlinked"
       ;;
     9)
-      create_symlink "~/dot_jake/.starship.toml" "~/.config/
+      create_symlink "$HOME/dot_jake/.starship.toml" "$HOME/.config/starship.toml"
       echo ".starship.toml symlinked"
       ;;
     x|X)
@@ -85,8 +85,9 @@ menu() {
 }
 
 while true; do
-  mkdir -p ~/.config/nvim
-  mkdir -p ~/.config/kitty
-  mkdir -p ~/.local/bin
+  mkdir -p "$HOME/.config/nvim"
+  mkdir -p "$HOME/.config/kitty"
+  mkdir -p "$HOME/.local/bin"
   menu
 done
+

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+create_symlink() {
+  ln -sf "$1" "$2"
+}
+
+menu() {
+  clear
+  echo "Dot Jake Setup"
+  echo "============"
+  echo "0. Setup all for Linux"
+  echo "1. Symlink ZSH"
+  echo "2. Symlink GIT"
+  echo "3. Symlink TMUX"
+  echo "4. Symlink Kitty"
+  echo "5. Symlink Neovim"
+  echo "6. Symlink Redshift"
+  echo "7. Symlink Scripts"
+  echo "8. Symlink WezTerm - W10"
+  echo "9. Symlink Starship"
+  echo "X. Exit"
+  echo "============"
+  read -p "Enter your choice: " choice
+  case $choice in
+    0)
+      create_symlink "~/dot_jake/.zshrc" "~/.zshrc"
+      create_symlink "~/dot_jake/aliases.zsh" "~/aliases.zsh"
+     
+
