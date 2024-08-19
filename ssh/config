@@ -1,0 +1,15 @@
+Host oberon-ssh
+  HostName ssh.zakrzaq.xyz
+  User jake
+  ProxyCommand cloudflared access ssh --hostname %h
+
+Host oberon-ssh-ports
+  HostName ssh.zakrzaq.xyz
+  User jake
+  ProxyCommand cloudflared access ssh --hostname %h
+  # ProxyCommand cloudflared access ssh -L 3000:localhost:3000 -L 5173:localhost:5173 -L 5000:localhost:5000 -L 8071:localhost:7071 --hostname %h
+  # LocalForward [local_port] [remote_host]:[remote_port]
+  LocalForward 3000 localhost:3000
+  LocalForward 5000 localhost:5000
+  LocalForward 5173 localhost:5173
+  LocalForward 8071 localhost:7071
