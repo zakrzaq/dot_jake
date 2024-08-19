@@ -31,10 +31,12 @@ case ":$PATH:" in
 esac
 
 # PYENV
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-alias pyl="pyenv local --unset"
+if [ -d "$HOME"/.pyenv/bin ]; then
+	export PATH="$HOME/.pyenv/bin:$PATH"
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
+	alias pyl="pyenv local --unset"
+fi
 
 # STARSHIP
 eval "$(starship init zsh)"
