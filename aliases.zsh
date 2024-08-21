@@ -3,17 +3,23 @@ alias ta='tmux attach'
 alias td='tmux detach'
 
 # SYS UBUNTU 
-alias aptupd='sudo apt update'
-alias aptupg='sudo apt upgrade'
-alias aptins='fn() { sudo apt install $1 }; fn'
-alias aptcln='sudo apt autoremove && sudo apt autoclean'
-my-ip() { ip addr | grep -Po 'inet \K[\d.]+' | sort -nr | tr "\n" "  " ;};
-alias me='echo $(whoami) $(uname -n) $(uname -s) $(my-ip)'
+alias apd='sudo apt update'
+alias apg='sudo apt upgrade'
+alias api='fn() { sudo apt install $1 }; fn'
+alias apc='sudo apt autoremove && sudo apt autoclean'
+
+# SYS ARCH
+alias yai='fn() { yay -S "$@" }; fn'
+alias yar='fn() { yay -R "$@" }; fn'
+alias yau='yay -Syu'
+alias pai='fn() {} sudo pacman -S "$@" }; fn'
+alias par='fn() {} sudo pacman -R "$@" }; fn'
+alias pau='sudo pacman -Syu'
 
 
 # SYS TERM
+alias la='ls -la'
 alias rmv='rm -rf'
-alias src-zsh='source ~/.zshrc; clear'
 alias cl='clear'
 alias x='exit'
 alias mkd='fn() { mkdir "$1" && cd "$1"; }; fn'
@@ -21,6 +27,10 @@ alias we='watch echo'
 alias src='fn() { source ./"$1"/bin/activate }; fn'
 alias ls-cmd='fc -l -n 1 | fzf | xargs -r -I {} /bin/zsh -c "{}"'
 alias fnd="fzf --preview 'bat --color=always {}'"
+my-ip() { ip addr | grep -Po 'inet \K[\d.]+' | sort -nr | tr "\n" "  " ;};
+alias me='echo $(whoami) $(uname -n) $(uname -s) $(my-ip)'
+alias lz='exa --long --icons --git'
+alias lza='exa --long --icons'
 
 # GIT:
 alias gint='git init && git branch -m main'
@@ -45,11 +55,11 @@ alias glg='git log -r -n 10 --pretty=format:"%h - %an, %ar : %s"'
 alias glg-last-cmt='git log -n 1 --pretty=format:%H'
 alias glg-tree='git log --oneline --decorate --graph -n 20'
 alias glg-tree-detail='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' -n 20'
-alias gdf-up='git diff @\{upstream\} | nvim'
-alias gdf-master='git diff master | nvim'
-alias gdf-main='git diff main | nvim'
+alias gdf-up='git diff @\{upstream\}'
+alias gdf-master='git diff master'
+alias gdf-main='git diff main'
 alias gdf-conf='git diff --name-only --diff-filter=U --relative'
-alias gdf='git diff | nvim -'
+alias gdf='git diff'
 alias gbr-local='fn() { git branch | grep -v "$1" | xargs git branch -D; }; fn'
 alias wgst='watch -n 1 git status'
 alias grv='fn() { git reset --"$1" HEAD~"$2" }; fn'
@@ -57,6 +67,7 @@ alias grv='fn() { git reset --"$1" HEAD~"$2" }; fn'
 # DEV SERVERS
 alias nrs='npm run serve'
 alias nrd='npm run dev'
+alias nrd='npm run watch'
 alias nst='npm start'
 alias yd='yarn dev'
 alias yb='yarn build'
@@ -94,5 +105,4 @@ alias dfh="df -h | grep home | awk '{print \$4}'"
 alias rmv-dirs='fn() { find . -name $1 -type d -prune -exec rm -rf '{}' + }; fn'
 alias cheat='fn() { curl cheat.sh/$1 }; fn'
 alias vt="vtop -t nord"
-alias tt="taskwarrior-tui"
 
