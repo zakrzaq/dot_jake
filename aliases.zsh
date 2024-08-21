@@ -12,8 +12,8 @@ alias apc='sudo apt autoremove && sudo apt autoclean'
 alias yai='fn() { yay -S "$@" }; fn'
 alias yar='fn() { yay -R "$@" }; fn'
 alias yau='yay -Syu'
-alias pai='fn() {} sudo pacman -S "$@" }; fn'
-alias par='fn() {} sudo pacman -R "$@" }; fn'
+alias pai='fn() { sudo pacman -S "$@" }; fn'
+alias par='fn() { sudo pacman -R "$@" }; fn'
 alias pau='sudo pacman -Syu'
 
 
@@ -31,6 +31,9 @@ my-ip() { ip addr | grep -Po 'inet \K[\d.]+' | sort -nr | tr "\n" "  " ;};
 alias me='echo $(whoami) $(uname -n) $(uname -s) $(my-ip)'
 alias lz='exa --long --icons --git'
 alias lza='exa --long --icons'
+alias a='aaa'
+alias ld='lazydocker'
+alias lg='lazygit'
 
 # GIT:
 alias gint='git init && git branch -m main'
@@ -104,5 +107,4 @@ alias dus='fn() { du -h --max-depth=1 $1 | sort -hr }; fn'
 alias dfh="df -h | grep home | awk '{print \$4}'"
 alias rmv-dirs='fn() { find . -name $1 -type d -prune -exec rm -rf '{}' + }; fn'
 alias cheat='fn() { curl cheat.sh/$1 }; fn'
-alias vt="vtop -t nord"
 
