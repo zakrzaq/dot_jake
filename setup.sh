@@ -4,6 +4,20 @@ create_symlink() {
   ln -sf "$1" "$2"
 }
 
+setup_all() {
+  create_symlink "$HOME/dot_jake/.zshrc" "$HOME/.zshrc"
+  create_symlink "$HOME/dot_jake/aliases.zsh" "$HOME/aliases.zsh"
+  create_symlink "$HOME/dot_jake/.gitconfig" "$HOME/.gitconfig"
+  create_symlink "$HOME/dot_jake/.tmux.conf" "$HOME/.tmux.conf"
+  mv "$HOME/.config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf.bak" 
+  create_symlink "$HOME/dot_jake/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+  create_symlink "$HOME/dot_jake/nvim" "$HOME/.config/nvim"
+  create_symlink "$HOME/dot_jake/redshift.conf" "$HOME/.config/redshift.conf"
+  create_symlink "$HOME/dot_jake/scripts" "$HOME/.local/bin"
+  create_symlink "$HOME/dot_jake/.starship.toml" "$HOME/.config/starship.toml"
+  echo 'Full run completed'
+}
+
 menu() {
   clear
   echo "Dot Jake Setup"
@@ -23,17 +37,7 @@ menu() {
   read -p "Enter your choice: " choice
   case $choice in
     0)
-      create_symlink "$HOME/dot_jake/.zshrc" "$HOME/.zshrc"
-      create_symlink "$HOME/dot_jake/aliases.zsh" "$HOME/aliases.zsh"
-      create_symlink "$HOME/dot_jake/.gitconfig" "$HOME/.gitconfig"
-      create_symlink "$HOME/dot_jake/.tmux.conf" "$HOME/.tmux.conf"
-      mv "$HOME/.config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf.bak" 
-      create_symlink "$HOME/dot_jake/kitty.conf" "$HOME/.config/kitty/kitty.conf"
-      create_symlink "$HOME/dot_jake/nvim" "$HOME/.config/nvim"
-      create_symlink "$HOME/dot_jake/redshift.conf" "$HOME/.config/redshift.conf"
-      create_symlink "$HOME/dot_jake/scripts" "$HOME/.local/bin"
-      create_symlink "$HOME/dot_jake/.starship.toml" "$HOME/.config/starship.toml"
-      echo 'Full run completed'
+      setup_all
       ;;
     1)
       create_symlink "$HOME/dot_jake/aliases.zsh" "$HOME/aliases.zsh"
