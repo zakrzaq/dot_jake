@@ -24,7 +24,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # CARGO
-[ -d $HOME/.cargo/env ] && source $HOME/.cargo/env
+[ -f $HOME/.cargo/env ] && . $HOME/.cargo/env
 
 # PNPM
 export PNPM_HOME="/home/jake/.local/share/pnpm"
