@@ -84,6 +84,11 @@ menu() {
   read -n 1 -s -r -p "Press any key to return to the menu"
 }
 
+if [ "$1" == "0" ]; then
+  setup_all
+  exit 0
+fi
+
 while true; do
   mkdir -p "$HOME/.config/nvim"
   mkdir -p "$HOME/.config/kitty"

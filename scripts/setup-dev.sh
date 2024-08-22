@@ -1,9 +1,12 @@
 #!/bin/bash
 
+bash ~/dot_jake/scripts/setup.sh 0
+
+# APT
 sudo apt install -y build-essential curl git make zsh tmux bat exa ncdu httpie ripgrep fd-find duf 
 
-# procs
-sudo snap install procs
+# SNAP
+sudo snap install procs neovim
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
