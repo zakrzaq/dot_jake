@@ -25,7 +25,7 @@ sudo install lazygit /usr/local/bin
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-[ -f $HOME/.zshrc ] && source $HOME/.zshrc
+source $HOME/.zshrc
 
 # tokei
 cargo install tokei
@@ -38,4 +38,4 @@ cargo install bottom --locked
 
 
 # reload
-[ -f $HOME/.zshrc ] && source $HOME/.zshrc
+source $HOME/.zshrc
