@@ -67,14 +67,8 @@ vim.keymap.set(
 vim.keymap.set(
 	"n",
 	"<leader>sd",
-	require("telescope.builtin").diagnostics({ severity = "Error" }),
-	{ desc = "[S]earch buffer [D]iagnostics - ERR" }
-)
-vim.keymap.set(
-	"n",
-	"<leader>sD",
 	require("telescope.builtin").diagnostics,
-	{ desc = "[S]earch buffer [D]iagnostics - all" }
+	{ desc = "[S]earch buffer [D]iagnostics" }
 )
 vim.keymap.set("n", "<leader>st", "<cmd>:TodoTelescope<CR>", { desc = "[S]earch [T]odos" })
 vim.keymap.set("n", "<leader>ss", "<cmd>:Telescope lsp_document_symbols<CR>", { desc = "[S]earch document [s]ymbol" })
