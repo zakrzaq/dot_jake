@@ -1,9 +1,9 @@
-Host oberon-ssh
+Host oberon-cf
   HostName ssh.zakrzaq.xyz
   User jake
   ProxyCommand cloudflared access ssh --hostname %h
 
-Host oberon-ssh-ports
+Host oberon-cf-ports
   HostName ssh.zakrzaq.xyz
   User jake
   ProxyCommand cloudflared access ssh --hostname %h
@@ -13,3 +13,8 @@ Host oberon-ssh-ports
   LocalForward 5000 localhost:5000
   LocalForward 5173 localhost:5173
   LocalForward 8071 localhost:7071
+
+  Host namecheap
+    HostName 67.223.118.27
+    User jukeuklg
+    Port 21098
